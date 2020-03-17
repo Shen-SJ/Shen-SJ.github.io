@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>A Pelican Blog</title><link href="/" rel="alternate"></link><link href="/feeds/all-cz.atom.xml" rel="self"></link><id>/</id><updated>2014-09-15T00:00:00+00:00</updated><entry><title>Přeložený článek</title><link href="/translated-article-cz.html" rel="alternate"></link><published>2014-09-15T00:00:00+00:00</published><updated>2014-09-15T00:00:00+00:00</updated><author><name></name></author><id>tag:None,2014-09-15:/translated-article-cz.html</id><content type="html">&lt;p&gt;Jednoduchý článek s překlady.
+Zde je odkaz na &lt;a class="reference external" href="{filename}/images/img.png"&gt;nějaký obrázek&lt;/a&gt;.&lt;/p&gt;
+</content><category term="content"></category></entry></feed>
