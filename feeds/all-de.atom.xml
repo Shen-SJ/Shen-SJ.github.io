@@ -1,4 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>A Pelican Blog</title><link href="/" rel="alternate"></link><link href="/feeds/all-de.atom.xml" rel="self"></link><id>/</id><updated>2014-09-14T00:00:00+00:00</updated><entry><title>Ein übersetzter Artikel</title><link href="/translated-article-de.html" rel="alternate"></link><published>2014-09-14T00:00:00+00:00</published><updated>2014-09-14T00:00:00+00:00</updated><author><name></name></author><id>tag:None,2014-09-14:/translated-article-de.html</id><content type="html">&lt;p&gt;Ein einfacher Artikel mit einer Übersetzung.
-Hier ist ein Link zur &lt;a class="reference external" href="{filename}/images/img.png"&gt;einigem Bild&lt;/a&gt;.&lt;/p&gt;
-</content><category term="content"></category></entry></feed>
