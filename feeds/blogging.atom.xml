@@ -69,11 +69,11 @@
 * VPN類型: L2TP/IPsec(使用預先共用金鑰)
 * 預先共用金鑰: 就是你在&lt;a href="#IPsecPS"&gt;這步驟&lt;/a&gt;所設的密碼
 * 使用者名稱: 管理者幫你建立的帳號
-* 密碼: 管理者幫你設定的密碼
+* 密碼: 管理者幫你設定的密碼&lt;br&gt;
 &lt;img alt="輸入VPN資訊" src="https://drive.google.com/uc?export=view&amp;amp;id=10B12HEKyKHRvsOedJ09UCpBkuJwdaPvW"&gt;&lt;/p&gt;
-&lt;p&gt;都輸入完就可以儲存囉~~再來你點選你工具列右下角的網路圖示，可以發現到多了你剛剛新增個VPN，當你想要使用這VPN查paper的時候就按連線
-&lt;img alt="建立VPN連線" src="https://drive.google.com/uc?export=view&amp;amp;id=10B12HEKyKHRvsOedJ09UCpBkuJwdaPvW"&gt;&lt;/p&gt;
-&lt;p&gt;出現已連線就是成功了，恭喜你!!!
+&lt;p&gt;都輸入完就可以儲存囉~~再來你點選你工具列右下角的網路圖示，可以發現到多了你剛剛新增個VPN，當你想要使用這VPN查paper的時候就按連線&lt;br&gt;
+&lt;img alt="建立VPN連線" src="https://drive.google.com/uc?export=view&amp;amp;id=1V8V7ckrFyLtnplXLJafVBpGoCSUvgTRY"&gt;&lt;/p&gt;
+&lt;p&gt;出現已連線就是成功了，恭喜你!!!&lt;br&gt;
 &lt;img alt="VPN連線成功!" src="https://drive.google.com/uc?export=view&amp;amp;id=1vvrpHAjJM02kIxwNklYrEDoBFknnWidY"&gt;&lt;/p&gt;
 &lt;p&gt;參考資料:&lt;br&gt;
 &lt;a href="https://zh.wikipedia.org/wiki/SoftEther_VPN"&gt;https://zh.wikipedia.org/wiki/SoftEther_VPN&lt;/a&gt;
