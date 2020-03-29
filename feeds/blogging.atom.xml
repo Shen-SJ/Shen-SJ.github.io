@@ -1,5 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>SSJ's Blog - blogging</title><link href="https://shen-sj.github.io/" rel="alternate"></link><link href="https://shen-sj.github.io/feeds/blogging.atom.xml" rel="self"></link><id>https://shen-sj.github.io/</id><updated>2020-03-29T02:10:05+00:00</updated><entry><title>用Pelican搞部落格遇到的python import模組問題...</title><link href="https://shen-sj.github.io/articles/2020/03/29/yong-pelicangao-bu-luo-ge-yu-dao-de-python-importmo-zu-wen-ti/" rel="alternate"></link><published>2020-03-29T02:10:05+00:00</published><updated>2020-03-29T02:10:05+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-03-29:/articles/2020/03/29/yong-pelicangao-bu-luo-ge-yu-dao-de-python-importmo-zu-wen-ti/</id><summary type="html">&lt;p&gt;最近一直在練習用Pelican寫部落格，不過之前我設定專案的時候好像沒設定好，publishconf.py裡面沒有把pelicanconfi.py裡的設定給匯入...&lt;/p&gt;</summary><content type="html">&lt;p&gt;最近一直在練習用Pelican寫部落格，不過之前我設定專案的時候好像沒設定好，publishconf.py裡面沒有把pelicanconfi.py裡的設定給匯入，
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SSJ's Blog - blogging</title><link href="https://shen-sj.github.io/" rel="alternate"></link><link href="https://shen-sj.github.io/feeds/blogging.atom.xml" rel="self"></link><id>https://shen-sj.github.io/</id><updated>2020-03-29T15:30:00+00:00</updated><entry><title>用SoftEther架設自己的VPN</title><link href="https://shen-sj.github.io/articles/2020/03/29/yong-softetherjia-she-zi-ji-de-vpn/" rel="alternate"></link><published>2020-03-29T15:30:00+00:00</published><updated>2020-03-29T15:30:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-03-29:/articles/2020/03/29/yong-softetherjia-she-zi-ji-de-vpn/</id><summary type="html">&lt;p&gt;一些可憐的~~菸酒生~~在家也想要查查文獻、看看paper，但學校又沒有提供VPN的話，那可是一件非常痛苦的事情啊...，難道只能去實驗室用電腦了嗎?!&lt;/p&gt;</summary><content type="html">&lt;p&gt;一些可憐的~~菸酒生~~在家也想要查查文獻、看看paper，但學校又沒有提供VPN的話，那可是一件非常痛苦的事情啊...，難道只能去實驗室用電腦了嗎?!
+有一個方法就是使用遠端桌面連回實驗室電腦，通常這可以利用一些軟體(如:Teamviewer, Anydesk...)或是你電腦的windows系統是專業版、
+教育版、...等等(~~反正不是家用版就對了~~)就能夠辦到，不過我又覺得我只是想要使用學校的這個IP來查詢資料，直接連回電腦會不會太大費周章了@@?
+所以我就想使用另外一個方法，在學校電腦自己架一個VPN Server，不過架設的過程是稍嫌複雜，本人也是研究了好幾天才大概能用...
+好不容易成功了就記錄一下整個流程吧~不然我怕之後還會用到的話我卻忘了QQ
+以下的步驟都是參考以下幾篇文章所得到的心得，我把網址附在最下面，有需要的同學可以去參考參考，基本上步驟都跟他們一樣啦 :))
+那就開始吧!!!&lt;/p&gt;
+&lt;h2&gt;使用軟體與作業系統&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;SoftEtherVPN&lt;/li&gt;
+&lt;li&gt;Windows10 企業版 ((家用版應該也是可以吧...&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;架設VPN Server&lt;/h2&gt;
+&lt;p&gt;首先我是去官方網站下載該軟體，進到官網就是找到 Download&amp;gt;&amp;gt;Download SoftEtherVPN 並進入&lt;br&gt;
+&lt;img alt="到官網下載軟體" src="https://drive.google.com/uc?export=view&amp;amp;id=1eTgL6-_xB3h-5hZN1swOy8e67P1H54xr"&gt;&lt;/p&gt;
+&lt;p&gt;選擇適合你的選項，像我是windows系統，系統就選windows，然後就會看到下面出現很多連結，最上面的應該是最新版本，應該也是可以用啦，
+不過我是選擇稍微就一點的版本就是，~~總是有傳言最新的比較不穩定~~，我是用Ver4.31給大家參考參考&lt;br&gt;
+&lt;img alt="選擇軟體" src="https://drive.google.com/uc?export=view&amp;amp;id=1NXG6ihAma2wSLFlIZJlwH12ZDCppEYUk"&gt;&lt;/p&gt;
+&lt;p&gt;選了想要的版本後他應該就會開始下載了，等下載完就點兩下開始安裝，就下一步~&lt;br&gt;
+&lt;img alt="開始安裝" src="https://drive.google.com/uc?export=view&amp;amp;id=167LByeywEKjDZrHQ7i6uU6rU7cP58DVf"&gt;&lt;/p&gt;
+&lt;p&gt;因為我們就是要建立一個VPN Server，所以選SoftEther VPN Server後就下一步~&lt;br&gt;
+&lt;img alt="選SoftEther VPN Server" src="https://drive.google.com/uc?export=view&amp;amp;id=1DEWHyPRsFv5yfoY_M1JXSAZa1klDu6LQ"&gt;&lt;/p&gt;
+&lt;p&gt;後面就是一些許可與軟體訊息什麼的，看過後沒問題就可以下一步了~&lt;br&gt;
+&lt;img alt="用戶許可協議" src="https://drive.google.com/uc?export=view&amp;amp;id=1vmSzhNeYSre1_K_rw7SAOQKt_O6Bi3A6"&gt;
+&lt;img alt="重要訊息" src="https://drive.google.com/uc?export=view&amp;amp;id=1Q6Eg_uHkPheDzQLsQY2tR4yh3crQepvN"&gt;&lt;/p&gt;
+&lt;p&gt;指定好你軟體要安裝在那裡就繼續((我是使用預設而已&lt;br&gt;
+&lt;img alt="指定安裝目錄" src="https://drive.google.com/uc?export=view&amp;amp;id=1PUneC8sQ0EGJvbR20QSFWzUlW3Wx5gji"&gt;&lt;/p&gt;
+&lt;p&gt;開始安裝!!&lt;br&gt;
+&lt;img alt="進行安裝" src="https://drive.google.com/uc?export=view&amp;amp;id=16azoj2LZMon5ZaTFzn34cZ_uGqdc9BOT"&gt;&lt;/p&gt;
+&lt;p&gt;咕嚕咕嚕咕嚕......&lt;br&gt;
+&lt;img alt="正在安裝" src="https://drive.google.com/uc?export=view&amp;amp;id=1Rhrs8yfG85t82FhuA1jr3tHTgEOKAeJO"&gt;&lt;/p&gt;
+&lt;p&gt;耶~~~ 安裝好了~~~&lt;br&gt;
+&lt;img alt="安裝好了" src="https://drive.google.com/uc?export=view&amp;amp;id=1CQwC0npVoZpx3U7iyZg5QGF-Gp_LrQao"&gt;&lt;/p&gt;
+&lt;p&gt;安裝好了如果直接按完成，他應該會幫你開啟 SoftEther VPN Server 管理工具，這時你可以看到他已經預先幫你建立了一個連線設置，
+我們就直接點那個設置兩下進行一些設定吧~&lt;br&gt;
+&lt;img alt="本地主機設置" src="https://drive.google.com/uc?export=view&amp;amp;id=1j-U6aETP2CiBAr8G017sB0SmVX0u8AQF"&gt;&lt;/p&gt;
+&lt;p&gt;因為我們是第一次進去這設置，所以他會叫你建立管理者密碼，之後如果身為管理者的你要進去這設置管理一些設定的話會需要用到這密碼~&lt;br&gt;
+&lt;img alt="設定管理者密碼" src="https://drive.google.com/uc?export=view&amp;amp;id=1kHyXodJTdRGnIt-aOstLXG25xVIknbeL"&gt;&lt;/p&gt;
+&lt;p&gt;密碼設定好了之後應該會跳出這東西，好像可以幫你簡單的安裝一些設定啦，但我是直接關閉等等自己設定這樣&lt;br&gt;
+&lt;img alt="server簡單安裝" src="https://drive.google.com/uc?export=view&amp;amp;id=1qz5J9yBqSUY5vAjHmKWwZ8jUw4NRPC8f"&gt;&lt;/p&gt;
+&lt;p&gt;關閉後他就會問你要不要設置IPsec，那我們就確定，因為等等連線會用到這東西~&lt;br&gt;
+&lt;img alt="是否設定IPsec" src="https://drive.google.com/uc?export=view&amp;amp;id=14N0lXy7MV0Y8H32_4cDFesLWRV6uVcdL"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;span id="IPsecPS"&gt;關於這東西的設置我是勾選第一個框框"啟動L2TP服務器功能(L2TP over IPsec)"，再來最下面那個密碼必須要設定並好好保存，
+之後要連到你這VPN會需要的~&lt;br&gt;
+&lt;img alt="IPsec設定" src="https://drive.google.com/uc?export=view&amp;amp;id=1pPml1GTZ5A36b-6A2WZQ7m8qpKKNFcAq"&gt;&lt;/p&gt;
+&lt;p&gt;到了這畫面表示快好了!!我們還有一個設定需要設定才能連上，首先先點"管理虛擬HUB"
+&lt;img alt="管理HUB" src="https://drive.google.com/uc?export=view&amp;amp;id=1lS9dpiIHOOfD0tR5VlTp0GbVLrvVflKI"&gt;&lt;/p&gt;
+&lt;p&gt;再來進入"虛擬NAT和虛擬DHCP服務器"裡面
+&lt;img alt="進入&amp;quot;虛擬NAT和虛擬DHCP服務器&amp;quot;" src="https://drive.google.com/uc?export=view&amp;amp;id=1ULYX5e9PSJZHMEp-FOGYEo6x4P2hvuuk"&gt;&lt;/p&gt;
+&lt;p&gt;點選"啟用SecureNAT"就可以囉~"SecureNAT配置"我是使用預設的，如果有懂得朋友也可以進去裡面客製一下~好了就可以關閉本畫面回到管理HUB畫面了
+&lt;img alt="啟用SecureNAT" src="https://drive.google.com/uc?export=view&amp;amp;id=1HTIz9ffHnu7np1n-E5ipRatx4OfdhtLA"&gt;&lt;/p&gt;
+&lt;p&gt;別人要使用你這台VPN需要透過帳號跟密碼，身為管理者的你就需要替他們建立帳號跟密碼囉，這樣除了比較安全外也可以限制有誰可以使用你的VPN，
+因此我們點選"管理用戶"來新增用戶
+&lt;img alt="管理用戶" src="https://drive.google.com/uc?export=view&amp;amp;id=1r4s8pfYxxYoVoJEXnhyQZEQrCZnbffUf"&gt;&lt;/p&gt;
+&lt;p&gt;你可以看到這裡什麼用戶都沒有，所以還沒有人可以使用你的VPN，我們點選"新建"
+&lt;img alt="管理用戶" src="https://drive.google.com/uc?export=view&amp;amp;id=1Z1AAoERrf3yBBnyitAbL5rSa3YblpnSH"&gt;&lt;/p&gt;
+&lt;p&gt;在這邊你就可以輸入新用戶的帳號跟密碼，至少我圖中兩個紅色框框部分需要設定，其他部分例如限制使用時段、
+驗證類型等等如果你會且有需要的話也可以去做設定~
+&lt;img alt="建立用戶" src="https://drive.google.com/uc?export=view&amp;amp;id=1vs_VaMlG52Sky-uzU_G-z4PQHeAb40Wq"&gt;&lt;/p&gt;
+&lt;p&gt;終於可以使用了!!可以請人家用用看囉~~
+&lt;img alt="建立完成" src="https://drive.google.com/uc?export=view&amp;amp;id=1BSp_1-0VSdfSxW409ck7HJNgUFDX2FCp"&gt;&lt;/p&gt;
+&lt;h2&gt;在windows中使用VPN&lt;/h2&gt;
+&lt;p&gt;首先必須到你windows電腦裡的 設定&amp;gt;&amp;gt;網路和網際網路&amp;gt;&amp;gt;VPN，來新建一個VPN連線
+&lt;img alt="建立VPN" src="https://drive.google.com/uc?export=view&amp;amp;id=1yUNKpnD3YIA28te70TtZ6GP1tZmDNHRq"&gt;&lt;/p&gt;
+&lt;p&gt;然後就輸入所需要的資訊，像是:
+* 連線名稱: 自己知道這VPN是甚麼就好，跟你的server沒關係~
+* 伺服器名稱或位址: 就是你架的VPN Server的IP
+* VPN類型: L2TP/IPsec(使用預先共用金鑰)
+* 預先共用金鑰: 就是你在&lt;a href="#IPsecPS"&gt;這步驟&lt;/a&gt;所設的密碼
+* 使用者名稱: 管理者幫你建立的帳號
+* 密碼: 管理者幫你設定的密碼
+&lt;img alt="輸入VPN資訊" src="https://drive.google.com/uc?export=view&amp;amp;id=10B12HEKyKHRvsOedJ09UCpBkuJwdaPvW"&gt;&lt;/p&gt;
+&lt;p&gt;都輸入完就可以儲存囉~~再來你點選你工具列右下角的網路圖示，可以發現到多了你剛剛新增個VPN，當你想要使用這VPN查paper的時候就按連線
+&lt;img alt="建立VPN連線" src="https://drive.google.com/uc?export=view&amp;amp;id=10B12HEKyKHRvsOedJ09UCpBkuJwdaPvW"&gt;&lt;/p&gt;
+&lt;p&gt;出現已連線就是成功了，恭喜你!!!
+&lt;img alt="VPN連線成功!" src="https://drive.google.com/uc?export=view&amp;amp;id=1vvrpHAjJM02kIxwNklYrEDoBFknnWidY"&gt;&lt;/p&gt;
+&lt;p&gt;參考資料:&lt;br&gt;
+&lt;a href="https://zh.wikipedia.org/wiki/SoftEther_VPN"&gt;https://zh.wikipedia.org/wiki/SoftEther_VPN&lt;/a&gt;
+&lt;a href="https://noter.tw/4524/softether-vpn-%E6%9E%B6%E8%A8%AD%E8%A8%98%E9%8C%84/"&gt;https://noter.tw/4524/softether-vpn-%E6%9E%B6%E8%A8%AD%E8%A8%98%E9%8C%84/&lt;/a&gt;
+&lt;a href="https://jjnux.blogspot.com/2017/02/softether-vpn-server-windows.html"&gt;https://jjnux.blogspot.com/2017/02/softether-vpn-server-windows.html&lt;/a&gt;
+&lt;a href="https://it001.pixnet.net/blog/post/328610332-it%E5%B0%88%E9%A1%8C--%E5%AE%89%E8%A3%9Dsoftethervpn-%28l2tp-ipsec%29"&gt;https://it001.pixnet.net/blog/post/328610332-it%E5%B0%88%E9%A1%8C--%E5%AE%89%E8%A3%9Dsoftethervpn-%28l2tp-ipsec%29&lt;/a&gt;&lt;/p&gt;</content><category term="blogging"></category><category term="VPN"></category><category term="SoftEther VPN"></category></entry><entry><title>用Pelican搞部落格遇到的python import模組問題...</title><link href="https://shen-sj.github.io/articles/2020/03/28/yong-pelicangao-bu-luo-ge-yu-dao-de-python-importmo-zu-wen-ti/" rel="alternate"></link><published>2020-03-28T23:00:00+00:00</published><updated>2020-03-28T23:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-03-28:/articles/2020/03/28/yong-pelicangao-bu-luo-ge-yu-dao-de-python-importmo-zu-wen-ti/</id><summary type="html">&lt;p&gt;最近一直在練習用Pelican寫部落格，不過之前我設定專案的時候好像沒設定好，publishconf.py裡面沒有把pelicanconfi.py裡的設定給匯入...&lt;/p&gt;</summary><content type="html">&lt;p&gt;最近一直在練習用Pelican寫部落格，不過之前我設定專案的時候好像沒設定好，publishconf.py裡面沒有把pelicanconfi.py裡的設定給匯入，
 所以我就自己把&lt;code&gt;from pelicanconf import *&lt;/code&gt;給加了進去，但每次當我要把目前的東西輸出成檔案在CMD下
 &lt;code&gt;pelican content -s publishconf.py&lt;/code&gt;指令的時候`,就會出現這個錯誤...  &lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;CRITICAL&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;ModuleNotFoundError&lt;/span&gt;&lt;span class="o"&gt;:&lt;/span&gt; &lt;span class="n"&gt;No&lt;/span&gt; &lt;span class="n"&gt;module&lt;/span&gt; &lt;span class="n"&gt;named&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;pelicanconf&amp;#39;&lt;/span&gt;
@@ -28,72 +108,4 @@
 &lt;/pre&gt;&lt;/div&gt;
 
 
-&lt;p&gt;然後終於成功了@@ 可以繼續專心研究搞部落格了...&lt;/p&gt;</content><category term="blogging"></category><category term="Python"></category><category term="Pelican"></category></entry><entry><title>圖片測試_外部連結</title><link href="https://shen-sj.github.io/articles/2020/03/24/tu-pian-ce-shi-_wai-bu-lian-jie/" rel="alternate"></link><published>2020-03-24T11:38:11+00:00</published><updated>2020-03-24T11:38:11+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-03-24:/articles/2020/03/24/tu-pian-ce-shi-_wai-bu-lian-jie/</id><summary type="html">&lt;p&gt;這是一篇測試能不能顯示外部連結圖片的文章~&lt;/p&gt;</summary><content type="html">&lt;p&gt;這是一篇測試能不能顯示外部連結圖片的文章~
-&lt;img alt="bird logo" src="https://drive.google.com/uc?export=view&amp;amp;id=1vCd1eCSRQDtOCWGQBesdTtna-LVPaWsW"&gt;&lt;/p&gt;</content><category term="blogging"></category><category term="picture"></category></entry><entry><title>show the picture</title><link href="https://shen-sj.github.io/articles/2020/03/24/show-the-picture/" rel="alternate"></link><published>2020-03-24T11:21:21+00:00</published><updated>2020-03-24T11:21:21+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-03-24:/articles/2020/03/24/show-the-picture/</id><content type="html">&lt;p&gt;&lt;img alt="bird logo" src="https://shen-sj.github.io/img/bird.jpg"&gt;&lt;/p&gt;</content><category term="blogging"></category><category term="picture"></category></entry><entry><title>Markdown Examples Part 1</title><link href="https://shen-sj.github.io/articles/2019/01/02/markdown-examples-part-1/" rel="alternate"></link><published>2019-01-02T12:00:00+00:00</published><updated>2019-01-02T12:00:00+00:00</updated><author><name>Matthew Devaney</name></author><id>tag:shen-sj.github.io,2019-01-02:/articles/2019/01/02/markdown-examples-part-1/</id><summary type="html">&lt;p&gt;Basic markdown examples are shown below&lt;/p&gt;</summary><content type="html">&lt;p&gt;Basic markdown examples are shown below&lt;/p&gt;
-&lt;p&gt;This text is &lt;strong&gt;bold&lt;/strong&gt;
-This text is also &lt;strong&gt;bold&lt;/strong&gt;
-⋯
-This text is &lt;em&gt;italic&lt;/em&gt;
-This text is also &lt;em&gt;italic&lt;/em&gt;&lt;/p&gt;
-&lt;p&gt;This text is &lt;strong&gt;&lt;em&gt;italic and bold&lt;/em&gt;&lt;/strong&gt;&lt;/p&gt;
-&lt;h1&gt;An h1 heading&lt;/h1&gt;
-&lt;h2&gt;An h2 heading&lt;/h2&gt;
-&lt;h3&gt;An h3 heading...&lt;/h3&gt;
-&lt;h6&gt;An h6 heading&lt;/h6&gt;
-&lt;p&gt;A list with numbers:
-1. One
-2. Two
-3. Three&lt;/p&gt;
-&lt;p&gt;A list with bullets:
-* Bullet
-* Bullet
-* Bullet&lt;/p&gt;
-&lt;p&gt;Here's a blockquote:&lt;/p&gt;
-&lt;p&gt;&amp;gt; Simple is better than complex&lt;/p&gt;
-&lt;p&gt;Here's a table:&lt;/p&gt;
-&lt;table&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th&gt;Column1&lt;/th&gt;
-&lt;th&gt;Column 2&lt;/th&gt;
-&lt;th&gt;Column 3&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody&gt;
-&lt;tr&gt;
-&lt;td&gt;Value 1&lt;/td&gt;
-&lt;td&gt;Value 2&lt;/td&gt;
-&lt;td&gt;Value 3&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Value 4&lt;/td&gt;
-&lt;td&gt;Value 5&lt;/td&gt;
-&lt;td&gt;Value 6&lt;/td&gt;
-&lt;/tr&gt;
-&lt;tr&gt;
-&lt;td&gt;Value 7&lt;/td&gt;
-&lt;td&gt;Value 8&lt;/td&gt;
-&lt;td&gt;Value 9&lt;/td&gt;
-&lt;/tr&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;p&gt;Here's a python script&lt;/p&gt;
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;def&lt;/span&gt; &lt;span class="nf"&gt;login&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="p"&gt;):&lt;/span&gt;
-    &lt;span class="c1"&gt;# 先開啟起始網頁取得初始cookies取得權限&lt;/span&gt;
-    &lt;span class="n"&gt;pre_web&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;get&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;pre_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                          &lt;span class="n"&gt;headers&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nor_headers&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;pre_cookies&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;utils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dict_from_cookiejar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cookies&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# 登入學校系統&lt;/span&gt;
-    &lt;span class="n"&gt;login_web&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;post&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;login_url&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                             &lt;span class="n"&gt;headers&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;nor_headers&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt;
-                             &lt;span class="n"&gt;data&lt;/span&gt;&lt;span class="o"&gt;=&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;login_data&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;login_cookies&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;requests&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;utils&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;dict_from_cookiejar&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cookies&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-    &lt;span class="n"&gt;remove_cookie_by_name&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;rs&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;cookies&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="s1"&gt;&amp;#39;PHPSESSID&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# 不知道 cookie 多了不必要的PHPSESSID會不會怎樣，先刪除好了&lt;/span&gt;
-
-    &lt;span class="c1"&gt;# 檢查登入有沒有失敗&lt;/span&gt;
-    &lt;span class="k"&gt;if&lt;/span&gt; &lt;span class="n"&gt;login_web&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;url&lt;/span&gt; &lt;span class="o"&gt;!=&lt;/span&gt; &lt;span class="bp"&gt;self&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;search_url&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;
-        &lt;span class="k"&gt;raise&lt;/span&gt; &lt;span class="n"&gt;LoginError&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;登入失敗!!!&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;
-
-    &lt;span class="k"&gt;return&lt;/span&gt; &lt;span class="n"&gt;login_web&lt;/span&gt;
-&lt;/pre&gt;&lt;/div&gt;</content><category term="blogging"></category><category term="markdown"></category></entry></feed>
+&lt;p&gt;然後終於成功了@@ 可以繼續專心研究搞部落格了...&lt;/p&gt;</content><category term="blogging"></category><category term="Python"></category><category term="Pelican"></category></entry></feed>
