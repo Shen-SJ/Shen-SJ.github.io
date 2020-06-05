@@ -1,5 +1,75 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>SSJ's Blog - blogging</title><link href="https://shen-sj.github.io/" rel="alternate"></link><link href="https://shen-sj.github.io/feeds/blogging.atom.xml" rel="self"></link><id>https://shen-sj.github.io/</id><updated>2020-03-29T15:30:00+00:00</updated><entry><title>用SoftEther架設自己的VPN</title><link href="https://shen-sj.github.io/articles/2020/03/29/yong-softetherjia-she-zi-ji-de-vpn/" rel="alternate"></link><published>2020-03-29T15:30:00+00:00</published><updated>2020-03-29T15:30:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-03-29:/articles/2020/03/29/yong-softetherjia-she-zi-ji-de-vpn/</id><summary type="html">&lt;p&gt;一些可憐的~~菸酒生~~在家也想要查查文獻、看看paper，但學校又沒有提供VPN的話，那可是一件非常痛苦的事情啊...，難道只能去實驗室用電腦了嗎?!&lt;/p&gt;</summary><content type="html">&lt;p&gt;一些可憐的~~菸酒生~~在家也想要查查文獻、看看paper，但學校又沒有提供VPN的話，那可是一件非常痛苦的事情啊...，難道只能去實驗室用電腦了嗎?!
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SSJ's Blog - blogging</title><link href="https://shen-sj.github.io/" rel="alternate"></link><link href="https://shen-sj.github.io/feeds/blogging.atom.xml" rel="self"></link><id>https://shen-sj.github.io/</id><updated>2020-06-05T22:30:00+00:00</updated><entry><title>Fiddler 無法抓取封包之 port 占用...</title><link href="https://shen-sj.github.io/articles/2020/06/05/fiddler-wu-fa-zhua-qu-feng-bao-zhi-port-zhan-yong/" rel="alternate"></link><published>2020-06-05T22:30:00+00:00</published><updated>2020-06-05T22:30:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-06-05:/articles/2020/06/05/fiddler-wu-fa-zhua-qu-feng-bao-zhi-port-zhan-yong/</id><summary type="html">&lt;p&gt;最近在寫網路爬蟲有用到 Fiddler 抓包軟體幫我看看用自己寫的程式送出與接收到的封包內容與直接用瀏覽器做這些動作有什麼不一樣...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;事發經過&lt;/h2&gt;
+&lt;p&gt;最近在寫網路爬蟲有用到 Fiddler 抓包軟體幫我看看用自己寫的程式送出與接收到的封包內容與直接用瀏覽器做這些動作有什麼不一樣，
+進而去做一些程式碼的修改，一開始這個 Fiddler 抓包都用得好好的，但突然有一天一樣用 Fiddler 抓取我運行的爬蟲程式封包時候居然出現：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;Traceback (most recent call last):&lt;/span&gt;
+&lt;span class="err"&gt;  File &amp;quot;main.py&amp;quot;, line 426, in &amp;lt;module&amp;gt;&lt;/span&gt;
+&lt;span class="err"&gt;  File &amp;quot;main.py&amp;quot;, line 363, in scrapping&lt;/span&gt;
+&lt;span class="err"&gt;  File &amp;quot;main.py&amp;quot;, line 125, in login&lt;/span&gt;
+&lt;span class="err"&gt;  File &amp;quot;site-packages\requests\sessions.py&amp;quot;, line 546, in get&lt;/span&gt;
+&lt;span class="err"&gt;  File &amp;quot;site-packages\requests\sessions.py&amp;quot;, line 533, in request&lt;/span&gt;
+&lt;span class="err"&gt;  File &amp;quot;site-packages\requests\sessions.py&amp;quot;, line 646, in send&lt;/span&gt;
+&lt;span class="err"&gt;  File &amp;quot;site-packages\requests\adapters.py&amp;quot;, line 510, in send&lt;/span&gt;
+&lt;span class="err"&gt;requests.exceptions.ProxyError: HTTPSConnectionPool(host=&amp;#39;my.ntu.edu.tw&amp;#39;, port=443): Max retries exceeded with url: /stuLeaveManagement/login.aspx?firstpage=teacher (Caused by ProxyError(&amp;#39;Cannot connect to proxy.&amp;#39;, OSError(&amp;#39;Tunnel connection failed: 405 Method Not Allowed&amp;#39;)))&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;平常不是都用得好好的嗎？怎麼突然就這樣了@@ 而且不只程式出現問題，我連瀏覽器都沒辦法上網了!由上面的情況與爆出的錯誤來看，
+感覺起來應該不是程式碼上的問題了(我也記得我沒改甚麼東西...)。雖然上面的錯誤訊息沒有看得很懂，但是我覺得可能是 port 的問題，
+Fiddler 會用到 port:8888(如下圖)，
+&lt;img alt="Fiddler的port設定" src="https://drive.google.com/uc?export=view&amp;amp;id=1HY4hsEWbwKzNCIMkMMt-QHVDnWIxzs4r"&gt;&lt;/p&gt;
+&lt;h2&gt;調查過程&lt;/h2&gt;
+&lt;p&gt;可能是不知道被誰佔用了吧~當然要直接改 Fiddler 的 port 應該是可以的，但還是想要知道是甚麼程式在佔用，萬一是駭客怎麼辦@@
+因此就趕快上網查了一下 windows 查詢系統 port 的指令...，原來是&lt;code&gt;netstat -ano&lt;/code&gt;啊~還順便查詢了參數的意義，
+由於太多參數了，我就列出這次會用到的三個就好，如果想要知道其他的參數意義，就在自己的 windows 電腦輸入&lt;code&gt;netstat /?&lt;/code&gt;吧~&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;NETSTAT&lt;/span&gt;&lt;span class="w"&gt; &lt;/span&gt;&lt;span class="o"&gt;[&lt;/span&gt;&lt;span class="n"&gt;option&lt;/span&gt;&lt;span class="o"&gt;]&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;a&lt;/span&gt;&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="n"&gt;顯示所有連線和接聽連接埠&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;n&lt;/span&gt;&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="n"&gt;以數字格式顯示位址和連接埠號碼&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;span class="w"&gt;  &lt;/span&gt;&lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;o&lt;/span&gt;&lt;span class="w"&gt;            &lt;/span&gt;&lt;span class="n"&gt;顯示與每個連線相關聯的擁有處理程序識別碼&lt;/span&gt;&lt;span class="err"&gt;。&lt;/span&gt;&lt;span class="w"&gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;喔...既然知道的指令與參數意義就來查詢看看吧!&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="k"&gt;C&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;Users&lt;/span&gt;&lt;span class="err"&gt;\&lt;/span&gt;&lt;span class="n"&gt;SSJ&lt;/span&gt;&lt;span class="o"&gt;&amp;gt;&lt;/span&gt;&lt;span class="n"&gt;netstat&lt;/span&gt; &lt;span class="o"&gt;-&lt;/span&gt;&lt;span class="n"&gt;ano&lt;/span&gt;
+
+&lt;span class="err"&gt;使用中連線&lt;/span&gt;
+
+  &lt;span class="err"&gt;協定&lt;/span&gt;   &lt;span class="err"&gt;本機位址&lt;/span&gt;               &lt;span class="err"&gt;外部位址&lt;/span&gt;               &lt;span class="err"&gt;狀態&lt;/span&gt;            &lt;span class="n"&gt;PID&lt;/span&gt;
+  &lt;span class="n"&gt;TCP&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;111&lt;/span&gt;            &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;              &lt;span class="n"&gt;LISTENING&lt;/span&gt;       &lt;span class="mi"&gt;4280&lt;/span&gt;
+  &lt;span class="n"&gt;TCP&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;135&lt;/span&gt;            &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;              &lt;span class="n"&gt;LISTENING&lt;/span&gt;       &lt;span class="mi"&gt;764&lt;/span&gt;
+  &lt;span class="n"&gt;TCP&lt;/span&gt;    &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;443&lt;/span&gt;            &lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;.&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;&lt;span class="p"&gt;:&lt;/span&gt;&lt;span class="mi"&gt;0&lt;/span&gt;              &lt;span class="n"&gt;LISTENING&lt;/span&gt;       &lt;span class="mi"&gt;4156&lt;/span&gt;
+    &lt;span class="p"&gt;...&lt;/span&gt;
+    &lt;span class="p"&gt;...&lt;/span&gt;
+    &lt;span class="p"&gt;...&lt;/span&gt;
+    &lt;span class="p"&gt;...&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;痾...好像有點多啊，要我一個一個去找 port:8888 也太累了吧...還好還有一個指令可以幫我們做這件事情，那就是&lt;code&gt;find&lt;/code&gt;：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;FIND &amp;lt;你想要搜尋的字串&amp;gt; &amp;lt;檔名:對哪個檔案進行搜尋&amp;gt;&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;但我們沒有要對甚麼檔案進行搜尋啊，難道還要把&lt;code&gt;netstat -ano&lt;/code&gt;的結果先輸出成檔案在搜尋嗎？哪有這麼白癡的設計，在這情況我們可以利用「|」
+(pipe)符號來達成我們的目的，整個指令就變成了&lt;code&gt;netstat -ano | find "8888"&lt;/code&gt;，雖然運作原理不是很懂，但我想他運作機制簡單來說
+應該就是將「|」左側&lt;code&gt;netstat -ano&lt;/code&gt;所輸出的結果丟到「|」右側指令的輸入去，畫成簡圖應該是這樣：
+&lt;img alt="pipe的簡單解釋圖" src="https://drive.google.com/uc?export=view&amp;amp;id=1ludInCg-c_9Wwva3yOAfrHsOhSzvp2w6"&gt;&lt;/p&gt;
+&lt;p&gt;所以這串指令就可以幫我們找到誰在佔用 port:8888 囉~&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="c"&gt;C:\Users\SSJ&amp;gt;netstat -ano | find &amp;quot;8888&amp;quot;&lt;/span&gt;
+&lt;span class="c"&gt;  TCP    127.0.0.1:8888         0.0.0.0:0              LISTENING       27140&lt;/span&gt;
+&lt;span class="c"&gt;  TCP    [::1]:8888             [::]:0                 LISTENING       27140&lt;/span&gt;
+&lt;span class="c"&gt;  UDP    0.0.0.0:28888          *:*                                    4156&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;喔...看起來有點複查啊，不過好像是看第一行結果（為什麼是看那行，原因有點複雜...反正就先查查看也不錯ˊˇˋ），得知是 PID=27140 
+這程式佔用了，那就到工作管理員&amp;gt;&amp;gt;處理程序來看看誰是 PID=27140，如果你的工作管理員&amp;gt;&amp;gt;處理程序沒有顯示 PID 的話，就在任一個欄位名稱點右鍵
+，把 PID 打勾就好了：
+&lt;img alt="叫出PID" src="https://drive.google.com/uc?export=view&amp;amp;id=1xhGMGhNhVXpfeAEtTWuxJOmZgAPei7mG"&gt;&lt;/p&gt;
+&lt;h2&gt;找到你了!!&lt;/h2&gt;
+&lt;p&gt;&lt;img alt="PID為27140的傢伙" src="https://drive.google.com/uc?export=view&amp;amp;id=1DMdIv2JaibjNW2T9k9eeytwYStjrBXfQ"&gt;
+喔喔就是你！終於抓到了~看起來是個 python 的執行檔案，目前我好像沒有在跑什麼東西所以關掉應該沒差吧~果然關掉後我的程式重跑就沒問題了，
+瀏覽器也可以正常的上網了~~~~&lt;/p&gt;</content><category term="blogging"></category><category term="Fiddler"></category><category term="CMD"></category><category term="Windows"></category></entry><entry><title>用SoftEther架設自己的VPN</title><link href="https://shen-sj.github.io/articles/2020/03/29/yong-softetherjia-she-zi-ji-de-vpn/" rel="alternate"></link><published>2020-03-29T15:30:00+00:00</published><updated>2020-03-29T15:30:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-03-29:/articles/2020/03/29/yong-softetherjia-she-zi-ji-de-vpn/</id><summary type="html">&lt;p&gt;一些可憐的~~菸酒生~~在家也想要查查文獻、看看paper，但學校又沒有提供VPN的話，那可是一件非常痛苦的事情啊...，難道只能去實驗室用電腦了嗎?!&lt;/p&gt;</summary><content type="html">&lt;p&gt;一些可憐的~~菸酒生~~在家也想要查查文獻、看看paper，但學校又沒有提供VPN的話，那可是一件非常痛苦的事情啊...，難道只能去實驗室用電腦了嗎?!
 有一個方法就是使用遠端桌面連回實驗室電腦，通常這可以利用一些軟體(如:Teamviewer, Anydesk...)或是你電腦的windows系統是專業版、
 教育版、...等等(~~反正不是家用版就對了~~)就能夠辦到，不過我又覺得我只是想要使用學校的這個IP來查詢資料，直接連回電腦會不會太大費周章了@@?
 所以我就想使用另外一個方法，在學校電腦自己架一個VPN Server，不過架設的過程是稍嫌複雜，本人也是研究了好幾天才大概能用...
