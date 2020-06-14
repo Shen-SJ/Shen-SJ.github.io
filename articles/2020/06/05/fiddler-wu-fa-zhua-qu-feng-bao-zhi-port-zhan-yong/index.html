@@ -124,7 +124,7 @@ SSJ's Blog            </a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <h2><i class="fas fa-crow"></i>事發經過</h2>
+                <h2><i class="fas fa-crow"></i>  事發經過</h2>
 <p>最近在寫網路爬蟲有用到 Fiddler 抓包軟體幫我看看用自己寫的程式送出與接收到的封包內容與直接用瀏覽器做這些動作有什麼不一樣，
 進而去做一些程式碼的修改，一開始這個 Fiddler 抓包都用得好好的，但突然有一天一樣用 Fiddler 抓取我運行的爬蟲程式封包時候居然出現：</p>
 <div class="highlight"><pre><span></span><span class="err">Traceback (most recent call last):</span>
@@ -143,7 +143,7 @@ SSJ's Blog            </a>
 感覺起來應該不是程式碼上的問題了(我也記得我沒改甚麼東西...)。雖然上面的錯誤訊息沒有看得很懂，但是我覺得可能是 port 的問題，
 Fiddler 會用到 port:8888(如下圖)，
 <img alt="Fiddler的port設定" src="https://drive.google.com/uc?export=view&amp;id=1HY4hsEWbwKzNCIMkMMt-QHVDnWIxzs4r"></p>
-<h2><i class="fas fa-crow"></i>調查過程</h2>
+<h2><i class="fas fa-crow"></i>  調查過程</h2>
 <p>可能是不知道被誰佔用了吧~當然要直接改 Fiddler 的 port 應該是可以的，但還是想要知道是甚麼程式在佔用，萬一是駭客怎麼辦@@
 因此就趕快上網查了一下 windows 查詢系統 port 的指令...，原來是<code>netstat -ano</code>啊~還順便查詢了參數的意義，
 由於太多參數了，我就列出這次會用到的三個就好，如果想要知道其他的參數意義，就在自己的 windows 電腦輸入<code>netstat /?</code>吧~</p>
@@ -191,9 +191,9 @@ Fiddler 會用到 port:8888(如下圖)，
 這程式佔用了，那就到工作管理員&gt;&gt;處理程序來看看誰是 PID=27140，如果你的工作管理員&gt;&gt;處理程序沒有顯示 PID 的話，就在任一個欄位名稱點右鍵
 ，把 PID 打勾就好了：
 <img alt="叫出PID" src="https://drive.google.com/uc?export=view&amp;id=1xhGMGhNhVXpfeAEtTWuxJOmZgAPei7mG"></p>
-<h2><i class="fas fa-crow"></i>找到你了!!</h2>
+<h2><i class="fas fa-crow"></i>  找到你了!!</h2>
 <p><img alt="PID為27140的傢伙" src="https://drive.google.com/uc?export=view&amp;id=1DMdIv2JaibjNW2T9k9eeytwYStjrBXfQ">
-喔喔就是你！終於抓到了~看起來是個 python 的執行檔案，目前我好像沒有在跑什麼東西所以關掉應該沒差吧~果然關掉後我的程式重跑就沒問題了，
+　　喔喔就是你！終於抓到了~看起來是個 python 的執行檔案，目前我好像沒有在跑什麼東西所以關掉應該沒差吧~果然關掉後我的程式重跑就沒問題了，
 瀏覽器也可以正常的上網了~~~~</p>
             </div>
             <!-- /.entry-content -->

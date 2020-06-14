@@ -1,3 +1,9 @@
+/* 看看有沒有辦法把我整個網頁字體改成思源體*/
+@import url(https://fonts.googleapis.com/earlyaccess/notosanstc.css);
+* {
+    font-family: 'Noto Sans TC';
+}
+
 article {
     box-shadow: rgba(0, 0, 0, 0.25) 0px 14px 45px, rgba(0, 0, 0, 0.22) 0px 10px 18px;
     border-radius: 2px;
@@ -10,6 +16,11 @@ article {
 /* 刪除 index 中 aboutme 圖片的框框*/
 .img-thumbnail {
     border: 0px solid #464545;
+}
+
+/* 看有沒有辦法把文章中的圖片加點空白*/
+.entry-content img {
+    padding: 20px;
 }
 
 /* 把 index 中的格線刪除*/
