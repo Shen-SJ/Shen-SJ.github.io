@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>用Pelican搞部落格遇到的python import模組問題... - SSJ's Blog</title>
+    <title>用 Python 將 AspenPlus 連接起來！！ - SSJ's Blog</title>
     <!-- Place your kit's code here -->
     <script src="https://kit.fontawesome.com/1aa695b259.js" crossorigin="anonymous"></script>
     <!-- Using the latest rendering mode for IE -->
@@ -12,21 +12,21 @@
 
     <link href="https://shen-sj.github.io/img/logo.png" rel="icon">
 
-<link rel="canonical" href="https://shen-sj.github.io/articles/2020/03/28/yong-pelicangao-bu-luo-ge-yu-dao-de-python-importmo-zu-wen-ti/">
+<link rel="canonical" href="https://shen-sj.github.io/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/">
 
         <meta name="author" content="SSJ" />
-        <meta name="keywords" content="Python,Pelican" />
-        <meta name="description" content="最近一直在練習用Pelican寫部落格，不過之前我設定專案的時候好像沒設定好，publishconf.py裡面沒有把pelicanconfi.py裡的設定給匯入..." />
+        <meta name="keywords" content="AspenPlus,Python" />
+        <meta name="description" content="最近被人家問要怎麼用 Python 把 AspenPlus 連接起來，突然想到其實我這部落格的創立就是想說寫一些 AspenPlus/Dynamics ..." />
 
         <meta property="og:site_name" content="SSJ's Blog" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="用Pelican搞部落格遇到的python import模組問題..."/>
-        <meta property="og:url" content="https://shen-sj.github.io/articles/2020/03/28/yong-pelicangao-bu-luo-ge-yu-dao-de-python-importmo-zu-wen-ti/"/>
-        <meta property="og:description" content="最近一直在練習用Pelican寫部落格，不過之前我設定專案的時候好像沒設定好，publishconf.py裡面沒有把pelicanconfi.py裡的設定給匯入..."/>
-        <meta property="article:published_time" content="2020-03-28" />
+        <meta property="og:title" content="用 Python 將 AspenPlus 連接起來！！"/>
+        <meta property="og:url" content="https://shen-sj.github.io/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/"/>
+        <meta property="og:description" content="最近被人家問要怎麼用 Python 把 AspenPlus 連接起來，突然想到其實我這部落格的創立就是想說寫一些 AspenPlus/Dynamics ..."/>
+        <meta property="article:published_time" content="2020-07-26" />
             <meta property="article:section" content="blogging" />
+            <meta property="article:tag" content="AspenPlus" />
             <meta property="article:tag" content="Python" />
-            <meta property="article:tag" content="Pelican" />
             <meta property="article:author" content="SSJ" />
 
 
@@ -95,10 +95,10 @@ SSJ's Blog            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="https://shen-sj.github.io/articles/2020/03/28/yong-pelicangao-bu-luo-ge-yu-dao-de-python-importmo-zu-wen-ti/"
+                    <a href="https://shen-sj.github.io/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/"
                        rel="bookmark"
-                       title="Permalink to 用Pelican搞部落格遇到的python import模組問題...">
-                        用Pelican搞部落格遇到的python import模組問題...
+                       title="Permalink to 用 Python 將 AspenPlus 連接起來！！">
+                        用 Python 將 AspenPlus 連接起來！！
                     </a>
                 </h1>
             </header>
@@ -108,7 +108,7 @@ SSJ's Blog            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2020-03-28T23:00:00+00:00"> 週六 28 三月 2020</time>
+        <i class="fa fa-calendar"></i><time datetime="2020-07-26T13:00:00+00:00"> 週日 26 七月 2020</time>
     </span>
 
 
@@ -116,42 +116,125 @@ SSJ's Blog            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="https://shen-sj.github.io/tag/python">Python</a>
+	<a href="https://shen-sj.github.io/tag/aspenplus">AspenPlus</a>
         /
-	<a href="https://shen-sj.github.io/tag/pelican">Pelican</a>
+	<a href="https://shen-sj.github.io/tag/python">Python</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>最近一直在練習用Pelican寫部落格，不過之前我設定專案的時候好像沒設定好，publishconf.py裡面沒有把pelicanconfi.py裡的設定給匯入，
-所以我就自己把<code>from pelicanconf import *</code>給加了進去，但每次當我要把目前的東西輸出成檔案在CMD下
-<code>pelican content -s publishconf.py</code>指令的時候`,就會出現這個錯誤...  </p>
-<div class="highlight"><pre><span></span><span class="n">CRITICAL</span><span class="o">:</span> <span class="n">ModuleNotFoundError</span><span class="o">:</span> <span class="n">No</span> <span class="n">module</span> <span class="n">named</span> <span class="s1">&#39;pelicanconf&#39;</span>
+                <h2><i class="fas fa-crow"></i>  前言</h2>
+<p>&emsp;&emsp;最近被人家問要怎麼用 Python 把 AspenPlus 連接起來，突然想到其實我這部落格的創立就是想說寫一些 AspenPlus/Dynamics 與
+Python/Fortran 連接相關的說明書這樣，不然重新去看英文的說明書其實頗累的，我英文也不好...那今天就是先來介紹怎麼用 Python 將
+AspenPlus 給連接起來吧~</p>
+<h2><i class="fas fa-crow"></i>  目錄</h2>
+<ul>
+<li><a href="#安裝相關程式與packages">安裝相關程式與 packages</a></li>
+<li><a href="#用Python連接AspenPlus檔案">用 Python 連接 AspenPlus 檔案</a></li>
+<li><a href="#在AspenPlus中找指定變數的路徑">在 AspenPlus 中找指定變數的路徑</a></li>
+<li><a href="#結語">結語</a></li>
+<li><a href="#參考資料">參考資料</a></li>
+</ul>
+<h2 id="安裝相關程式與packages"><i class="fas fa-crow"></i>  安裝相關程式與 packages</h2>
+<p>&emsp;&emsp;首先就是要先把你的 Python 與 AspenPlus 安裝起來，這我就不說了，網路上應該有很多相關的，就挑一個自己看得懂的來做即可。
+&emsp;&emsp;如果上面的都OK了，接下來就是要安裝讓 Python 可以與各種電腦應用程式進行互動的套件——pypiwin32——，使用你的 pip 來安裝：</p>
+<div class="highlight"><pre><span></span><span class="err">pip install pypiwin32</span>
 </pre></div>
 
 
-<p>疑?奇怪，pelicanconf.py 跟 publishconf.py 是在同一個資料夾，而且我不是有import了嗎?!怎麼他會找不到呢...
-因此我就確認了一下publishconf.py在工作的時候的路徑是長怎樣，我就在我那檔案添加了這段程式碼:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">sys</span>
-<span class="nb">print</span><span class="p">(</span><span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="p">)</span>
+<p>安裝好了後可以在你的 python 裡面 import 看看有沒有錯誤：</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">win32com.client</span> <span class="k">as</span> <span class="nn">win32</span>
 </pre></div>
 
 
-<p>然後就用CMD再給他run一次，結果...</p>
-<div class="highlight"><pre><span></span><span class="p">[</span><span class="s1">&#39;C:</span><span class="se">\\</span><span class="s1">Users</span><span class="se">\\</span><span class="s1">SSJ</span><span class="se">\\</span><span class="s1">Anaconda3</span><span class="se">\\</span><span class="s1">envs</span><span class="se">\\</span><span class="s1">myblog</span><span class="se">\\</span><span class="s1">Scripts</span><span class="se">\\</span><span class="s1">pelican.exe&#39;</span><span class="p">,</span> <span class="s1">&#39;c:</span><span class="se">\\</span><span class="s1">users</span><span class="se">\\</span><span class="s1">ssj</span><span class="se">\\</span><span class="s1">anaconda3</span><span class="se">\\</span><span class="s1">envs</span><span class="se">\\</span><span class="s1">myblog</span><span class="se">\\</span><span class="s1">python37.zip&#39;</span><span class="p">,</span><span class="o">......</span><span class="p">]</span>
+<p>如果沒有什麼輸出與錯誤表示安裝成功~</p>
+<h2 id="用Python連接AspenPlus檔案"><i class="fas fa-crow"></i>  用 Python 連接 AspenPlus 檔案</h2>
+<p>&emsp;&emsp;首先就是先匯入這個模組包，然後使用模組包的<code>Dispatch()</code>函式，傳入<code>'Apwn.Document'</code>值告訴 Python 你要開啟
+ AspenPlus 程式，如果你的電腦裡面有多種版本的 AspenPlus, 那可以傳<code>'Apwn.Document.{version_code}'</code>指定你的 AspenPlus 版本，
+ code 與 version_code 如下：</p>
+<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">win32com.client</span> <span class="k">as</span> <span class="nn">win32</span>
+
+<span class="n">aspen</span> <span class="o">=</span> <span class="n">win32</span><span class="o">.</span><span class="n">Dispatch</span><span class="p">(</span><span class="s1">&#39;Apwn.Document&#39;</span><span class="p">)</span>        <span class="c1"># 使用你電腦預設 AspenPlus 版本開啟</span>
+<span class="n">aspen2</span> <span class="o">=</span> <span class="n">win32</span><span class="o">.</span><span class="n">Dispatch</span><span class="p">(</span><span class="s1">&#39;Apwn.Document.36.0&#39;</span><span class="p">)</span>   <span class="c1"># 使用 AspenPlus V10.0 開啟</span>
 </pre></div>
 
 
-<p>怎麼沒有看到我的工作目錄哩...看來只好給他加上去了，但我發現其實Pelican有考慮到這點已經幫你加好了XDDD，只是我import的語句應該在目錄加
-進去之後，這樣才不會有問題，因此程式碼就變成了:</p>
-<div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">os</span>
-<span class="kn">import</span> <span class="nn">sys</span>
-<span class="n">sys</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">curdir</span><span class="p">)</span>
-
-<span class="kn">from</span> <span class="nn">pelicanconf</span> <span class="kn">import</span> <span class="o">*</span>
+<p>↓ AspenPlus 版本與版本號的對應</p>
+<table>
+<thead>
+<tr>
+<th align="center">版本</th>
+<th align="center">版本號</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="center">V8.8</td>
+<td align="center">34.0</td>
+</tr>
+<tr>
+<td align="center">V9</td>
+<td align="center">35.0</td>
+</tr>
+<tr>
+<td align="center">V10</td>
+<td align="center">36.0</td>
+</tr>
+<tr>
+<td align="center">V11</td>
+<td align="center">37.0</td>
+</tr>
+</tbody>
+</table>
+<p>&emsp;&emsp;在這邊你取的變數名稱可以說就是代表你的 AspenPlus 程式了，之後對 AspenPlus 程式的操作都要用這個變數來進行，在這裡我
+取名叫做<strong>aspen</strong>。接下來操控 AspenPlus 的語法都是在 UserGuide 上 <strong>Using the Aspen Plus ActiveX Automation Server</strong> 
+面找得到的了~通常呼叫了 AspenPlus 軟體後就是要開啟指定檔案，UserGuide 上說<code>InitFromArchive2(filename as String,...)</code>
+函式傳入檔案的絕對路徑就可以開啟檔案了，就像下面的 code 這樣：</p>
+<div class="highlight"><pre><span></span><span class="n">aspen</span><span class="o">.</span><span class="n">InitFromArchive2</span><span class="p">(</span><span class="s2">&quot;C:</span><span class="se">\\</span><span class="s2">Simulation 1.apw&quot;</span><span class="p">)</span>      <span class="c1"># 開啟 C:\Simulation 1.apw 的檔案</span>
 </pre></div>
 
 
-<p>然後終於成功了@@ 可以繼續專心研究搞部落格了...</p>
+<p>可以開始用 Python 操控你的檔案了！！</p>
+<h2 id="在AspenPlus中找指定變數的路徑"><i class="fas fa-crow"></i>  在 AspenPlus 中找指定變數的路徑</h2>
+<p>&emsp;&emsp;檔案開啟是開啟了，但如果你要把一些值抓出來或是用 Python 輸入進去，例如抓取/設定某蒸餾塔的塔板數還是不知道怎麼辦啊，
+這時候我們就必須知道那個值在 AspenPlus 程式裡的甚麼地方並且呼叫他，我們可以用 AspenPlus 裡面的 <strong>Variable Explorer</strong>找尋，
+他在 AspenPlus Simulation 介面中的 Costomize 裡面：
+<img alt="找出VariableExplorer" src="https://drive.google.com/uc?export=view&amp;id=14r8tbpsfy6xHFiuq2GJ2AQgJikGcOy6z"></p>
+<p>點開來裡面就是一個階層式的資料索引，所有在 AspenPlus 檔案裡面的資料都在這裡面了！我們可以在裡面找到想要的變數路徑~
+<img alt="DataTree" src="https://drive.google.com/uc?export=view&amp;id=1HfBMYRRJGDe-eeAlcc1BjGXC3dqoJhE3"></p>
+<p>不過其實這樣慢慢找蠻累的，有些看著索引名稱還好找，但有些真的是...，還好還是有方便的功能可以幫你快速找尋路徑！首先到你想要找的
+那個變數，這邊就以名為 B1 的蒸餾塔塔頂壓力為例子好了，在壓力那個數字給他複製起來：
+<img alt="CopyVariable" src="https://drive.google.com/uc?export=view&amp;id=11CoxHJEQVBsmIw7JmiXyv4Nu6AHJt5tn"></p>
+<p>再來就到你的 Variable Explorer 那邊，於階層瀏覽空白那邊隨便地方點右鍵並按下<strong>Go to Node</strong>：
+<img alt="click go to node" src="https://drive.google.com/uc?export=view&amp;id=15GHLgZgnf3HTxsPTrjmRUH8Bu9uQMseP"></p>
+<p>你會發現搜尋輸入框裡面已經有東西在裡面了！但那還不是你的路徑，就先按下<strong>OK</strong>讓他去找：
+<img alt="go_to_node_enter" src="https://drive.google.com/uc?export=view&amp;id=15_7nLws1rR0jFfdgeLrGD0-4ShabrdNp"></p>
+<p>哇~他除了幫你找到結果還幫你打開了階層清單呢~真是不錯~在右邊表格那邊的資訊欄中就可以得知關於 B1 塔的塔頂壓力這物件的程式相關資訊，
+其中的<strong>Path to Node</strong>與<strong>Call</strong>這兩個路徑都可以在程式裡面呼叫，再來就是用這個路徑呼叫其他關於這物件的屬性了，這裡要注意，
+路徑裡面的開頭<strong>Application</strong>就是我們前面建立的<strong>aspen</strong>變數。
+<img alt="找到路徑了！" src="https://drive.google.com/uc?export=view&amp;id=1hrD3RA6p_hbch4h0OZe4gCrdlkADQ10U"></p>
+<p>假設現在你要得到這塔頂壓力的值是多少，從表格來看，<strong>Value</strong>屬性應該就是你的壓力值，程式就可以這樣寫：</p>
+<div class="highlight"><pre><span></span><span class="n">b1_p</span> <span class="o">=</span> <span class="n">aspen</span><span class="o">.</span><span class="n">Tree</span><span class="o">.</span><span class="n">Data</span><span class="o">.</span><span class="n">Blocks</span><span class="o">.</span><span class="n">B1</span><span class="o">.</span><span class="n">Input</span><span class="o">.</span><span class="n">PRES1</span><span class="o">.</span><span class="n">Value</span>
+<span class="n">b1_p2</span> <span class="o">=</span> <span class="n">aspen</span><span class="o">.</span><span class="n">Tree</span><span class="o">.</span><span class="n">FindNode</span><span class="p">(</span><span class="s2">&quot;\Data\Blocks\B1\Input\PRES1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Value</span>    <span class="c1"># 跟上面那行的作用是一樣的</span>
+</pre></div>
+
+
+<p>前面的路徑只是把 Application 改成我們取名的 aspen 而已，基本上一樣，再來就是<strong>.Value</strong>來得到我們的值這樣，另外要設定這個值
+也是非常簡單，就跟平常妳寫程式用<strong>=</strong>來做就好：</p>
+<div class="highlight"><pre><span></span><span class="n">aspen</span><span class="o">.</span><span class="n">Tree</span><span class="o">.</span><span class="n">Data</span><span class="o">.</span><span class="n">Blocks</span><span class="o">.</span><span class="n">B1</span><span class="o">.</span><span class="n">Input</span><span class="o">.</span><span class="n">PRES1</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="mi">2</span>
+<span class="n">aspen</span><span class="o">.</span><span class="n">Tree</span><span class="o">.</span><span class="n">FindNode</span><span class="p">(</span><span class="s2">&quot;\Data\Blocks\B1\Input\PRES1&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">Value</span> <span class="o">=</span> <span class="mi">2</span>    <span class="c1"># 跟上面那行的作用是一樣的</span>
+</pre></div>
+
+
+<p>現在我把壓力設為 2 bar 了~</p>
+<h2 id="結語"><i class="fas fa-crow"></i>  結語</h2>
+<p>&emsp;&emsp;以上就是一個非常簡單得如何用 Python 連接 AspenPlus 的方式，裡面其實還有很多功能與坑沒說到，功能的話大部分 UserGuiude 都會介紹到，
+可以去參考參考，真的覺得 UserGuide 算是蠻重要的，可以好好的看看，那坑的話像是你要取用的屬性如 Physical Quantity 這種名子裡面有空格
+該怎麼辦，這有機會就再介紹了QQ</p>
+<h2 id="參考資料"><i class="fas fa-crow"></i>  參考資料</h2>
+<ol>
+<li><a href="http://kitchingroup.cheme.cmu.edu/blog/2013/06/14/Running-Aspen-via-Python/">Running Aspen via Python</a></li>
+<li>Aspen Plus User Guide</li>
+</ol>
             </div>
             <!-- /.entry-content -->
     <hr/>
@@ -166,8 +249,8 @@ SSJ's Blog            </a>
             var disqus_config = function () {
                 this.language = "en";
 
-                        this.page.identifier = '2020-03-28-yong-pelicangao-bu-luo-ge-yu-dao-de-python-importmo-zu-wen-ti';
-                        this.page.url = 'https://shen-sj.github.io/articles/2020/03/28/yong-pelicangao-bu-luo-ge-yu-dao-de-python-importmo-zu-wen-ti/';
+                        this.page.identifier = '2020-07-26-yong-python-jiang-aspenplus-lian-jie-qi-lai';
+                        this.page.url = 'https://shen-sj.github.io/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/';
             };
 
             /* * * DON'T EDIT BELOW THIS LINE * * */

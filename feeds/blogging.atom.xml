@@ -1,5 +1,117 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>SSJ's Blog - blogging</title><link href="https://shen-sj.github.io/" rel="alternate"></link><link href="https://shen-sj.github.io/feeds/blogging.atom.xml" rel="self"></link><id>https://shen-sj.github.io/</id><updated>2020-06-05T22:30:00+00:00</updated><entry><title>Fiddler 無法抓取封包之 port 占用...</title><link href="https://shen-sj.github.io/articles/2020/06/05/fiddler-wu-fa-zhua-qu-feng-bao-zhi-port-zhan-yong/" rel="alternate"></link><published>2020-06-05T22:30:00+00:00</published><updated>2020-06-05T22:30:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-06-05:/articles/2020/06/05/fiddler-wu-fa-zhua-qu-feng-bao-zhi-port-zhan-yong/</id><summary type="html">&lt;p&gt;最近在寫網路爬蟲有用到 Fiddler 抓包軟體幫我看看用自己寫的程式送出與接收到的封包內容與直接用瀏覽器做這些動作有什麼不一樣...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  事發經過&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SSJ's Blog - blogging</title><link href="https://shen-sj.github.io/" rel="alternate"></link><link href="https://shen-sj.github.io/feeds/blogging.atom.xml" rel="self"></link><id>https://shen-sj.github.io/</id><updated>2020-07-26T13:00:00+00:00</updated><entry><title>用 Python 將 AspenPlus 連接起來！！</title><link href="https://shen-sj.github.io/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/" rel="alternate"></link><published>2020-07-26T13:00:00+00:00</published><updated>2020-07-26T13:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-07-26:/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/</id><summary type="html">&lt;p&gt;最近被人家問要怎麼用 Python 把 AspenPlus 連接起來，突然想到其實我這部落格的創立就是想說寫一些 AspenPlus/Dynamics ...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;最近被人家問要怎麼用 Python 把 AspenPlus 連接起來，突然想到其實我這部落格的創立就是想說寫一些 AspenPlus/Dynamics 與
+Python/Fortran 連接相關的說明書這樣，不然重新去看英文的說明書其實頗累的，我英文也不好...那今天就是先來介紹怎麼用 Python 將
+AspenPlus 給連接起來吧~&lt;/p&gt;
+&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  目錄&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#安裝相關程式與packages"&gt;安裝相關程式與 packages&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#用Python連接AspenPlus檔案"&gt;用 Python 連接 AspenPlus 檔案&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#在AspenPlus中找指定變數的路徑"&gt;在 AspenPlus 中找指定變數的路徑&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#結語"&gt;結語&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#參考資料"&gt;參考資料&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="安裝相關程式與packages"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  安裝相關程式與 packages&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;首先就是要先把你的 Python 與 AspenPlus 安裝起來，這我就不說了，網路上應該有很多相關的，就挑一個自己看得懂的來做即可。
+&amp;emsp;&amp;emsp;如果上面的都OK了，接下來就是要安裝讓 Python 可以與各種電腦應用程式進行互動的套件——pypiwin32——，使用你的 pip 來安裝：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;pip install pypiwin32&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;安裝好了後可以在你的 python 裡面 import 看看有沒有錯誤：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;win32com.client&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;win32&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;如果沒有什麼輸出與錯誤表示安裝成功~&lt;/p&gt;
+&lt;h2 id="用Python連接AspenPlus檔案"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  用 Python 連接 AspenPlus 檔案&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;首先就是先匯入這個模組包，然後使用模組包的&lt;code&gt;Dispatch()&lt;/code&gt;函式，傳入&lt;code&gt;'Apwn.Document'&lt;/code&gt;值告訴 Python 你要開啟
+ AspenPlus 程式，如果你的電腦裡面有多種版本的 AspenPlus, 那可以傳&lt;code&gt;'Apwn.Document.{version_code}'&lt;/code&gt;指定你的 AspenPlus 版本，
+ code 與 version_code 如下：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;win32com.client&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;win32&lt;/span&gt;
+
+&lt;span class="n"&gt;aspen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;win32&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Apwn.Document&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;        &lt;span class="c1"&gt;# 使用你電腦預設 AspenPlus 版本開啟&lt;/span&gt;
+&lt;span class="n"&gt;aspen2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;win32&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Apwn.Document.36.0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;   &lt;span class="c1"&gt;# 使用 AspenPlus V10.0 開啟&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;↓ AspenPlus 版本與版本號的對應&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th align="center"&gt;版本&lt;/th&gt;
+&lt;th align="center"&gt;版本號&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;V8.8&lt;/td&gt;
+&lt;td align="center"&gt;34.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;V9&lt;/td&gt;
+&lt;td align="center"&gt;35.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;V10&lt;/td&gt;
+&lt;td align="center"&gt;36.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td align="center"&gt;V11&lt;/td&gt;
+&lt;td align="center"&gt;37.0&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;在這邊你取的變數名稱可以說就是代表你的 AspenPlus 程式了，之後對 AspenPlus 程式的操作都要用這個變數來進行，在這裡我
+取名叫做&lt;strong&gt;aspen&lt;/strong&gt;。接下來操控 AspenPlus 的語法都是在 UserGuide 上 &lt;strong&gt;Using the Aspen Plus ActiveX Automation Server&lt;/strong&gt; 
+面找得到的了~通常呼叫了 AspenPlus 軟體後就是要開啟指定檔案，UserGuide 上說&lt;code&gt;InitFromArchive2(filename as String,...)&lt;/code&gt;
+函式傳入檔案的絕對路徑就可以開啟檔案了，就像下面的 code 這樣：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;InitFromArchive2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s2"&gt;Simulation 1.apw&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;      &lt;span class="c1"&gt;# 開啟 C:\Simulation 1.apw 的檔案&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;可以開始用 Python 操控你的檔案了！！&lt;/p&gt;
+&lt;h2 id="在AspenPlus中找指定變數的路徑"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  在 AspenPlus 中找指定變數的路徑&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;檔案開啟是開啟了，但如果你要把一些值抓出來或是用 Python 輸入進去，例如抓取/設定某蒸餾塔的塔板數還是不知道怎麼辦啊，
+這時候我們就必須知道那個值在 AspenPlus 程式裡的甚麼地方並且呼叫他，我們可以用 AspenPlus 裡面的 &lt;strong&gt;Variable Explorer&lt;/strong&gt;找尋，
+他在 AspenPlus Simulation 介面中的 Costomize 裡面：
+&lt;img alt="找出VariableExplorer" src="https://drive.google.com/uc?export=view&amp;amp;id=14r8tbpsfy6xHFiuq2GJ2AQgJikGcOy6z"&gt;&lt;/p&gt;
+&lt;p&gt;點開來裡面就是一個階層式的資料索引，所有在 AspenPlus 檔案裡面的資料都在這裡面了！我們可以在裡面找到想要的變數路徑~
+&lt;img alt="DataTree" src="https://drive.google.com/uc?export=view&amp;amp;id=1HfBMYRRJGDe-eeAlcc1BjGXC3dqoJhE3"&gt;&lt;/p&gt;
+&lt;p&gt;不過其實這樣慢慢找蠻累的，有些看著索引名稱還好找，但有些真的是...，還好還是有方便的功能可以幫你快速找尋路徑！首先到你想要找的
+那個變數，這邊就以名為 B1 的蒸餾塔塔頂壓力為例子好了，在壓力那個數字給他複製起來：
+&lt;img alt="CopyVariable" src="https://drive.google.com/uc?export=view&amp;amp;id=11CoxHJEQVBsmIw7JmiXyv4Nu6AHJt5tn"&gt;&lt;/p&gt;
+&lt;p&gt;再來就到你的 Variable Explorer 那邊，於階層瀏覽空白那邊隨便地方點右鍵並按下&lt;strong&gt;Go to Node&lt;/strong&gt;：
+&lt;img alt="click go to node" src="https://drive.google.com/uc?export=view&amp;amp;id=15GHLgZgnf3HTxsPTrjmRUH8Bu9uQMseP"&gt;&lt;/p&gt;
+&lt;p&gt;你會發現搜尋輸入框裡面已經有東西在裡面了！但那還不是你的路徑，就先按下&lt;strong&gt;OK&lt;/strong&gt;讓他去找：
+&lt;img alt="go_to_node_enter" src="https://drive.google.com/uc?export=view&amp;amp;id=15_7nLws1rR0jFfdgeLrGD0-4ShabrdNp"&gt;&lt;/p&gt;
+&lt;p&gt;哇~他除了幫你找到結果還幫你打開了階層清單呢~真是不錯~在右邊表格那邊的資訊欄中就可以得知關於 B1 塔的塔頂壓力這物件的程式相關資訊，
+其中的&lt;strong&gt;Path to Node&lt;/strong&gt;與&lt;strong&gt;Call&lt;/strong&gt;這兩個路徑都可以在程式裡面呼叫，再來就是用這個路徑呼叫其他關於這物件的屬性了，這裡要注意，
+路徑裡面的開頭&lt;strong&gt;Application&lt;/strong&gt;就是我們前面建立的&lt;strong&gt;aspen&lt;/strong&gt;變數。
+&lt;img alt="找到路徑了！" src="https://drive.google.com/uc?export=view&amp;amp;id=1hrD3RA6p_hbch4h0OZe4gCrdlkADQ10U"&gt;&lt;/p&gt;
+&lt;p&gt;假設現在你要得到這塔頂壓力的值是多少，從表格來看，&lt;strong&gt;Value&lt;/strong&gt;屬性應該就是你的壓力值，程式就可以這樣寫：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;b1_p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Blocks&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;B1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PRES1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt;
+&lt;span class="n"&gt;b1_p2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FindNode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;\Data\Blocks\B1\Input\PRES1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt;    &lt;span class="c1"&gt;# 跟上面那行的作用是一樣的&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;前面的路徑只是把 Application 改成我們取名的 aspen 而已，基本上一樣，再來就是&lt;strong&gt;.Value&lt;/strong&gt;來得到我們的值這樣，另外要設定這個值
+也是非常簡單，就跟平常妳寫程式用&lt;strong&gt;=&lt;/strong&gt;來做就好：&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Blocks&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;B1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PRES1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
+&lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FindNode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;\Data\Blocks\B1\Input\PRES1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;    &lt;span class="c1"&gt;# 跟上面那行的作用是一樣的&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;現在我把壓力設為 2 bar 了~&lt;/p&gt;
+&lt;h2 id="結語"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  結語&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;以上就是一個非常簡單得如何用 Python 連接 AspenPlus 的方式，裡面其實還有很多功能與坑沒說到，功能的話大部分 UserGuiude 都會介紹到，
+可以去參考參考，真的覺得 UserGuide 算是蠻重要的，可以好好的看看，那坑的話像是你要取用的屬性如 Physical Quantity 這種名子裡面有空格
+該怎麼辦，這有機會就再介紹了QQ&lt;/p&gt;
+&lt;h2 id="參考資料"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  參考資料&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;a href="http://kitchingroup.cheme.cmu.edu/blog/2013/06/14/Running-Aspen-via-Python/"&gt;Running Aspen via Python&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Aspen Plus User Guide&lt;/li&gt;
+&lt;/ol&gt;</content><category term="blogging"></category><category term="AspenPlus"></category><category term="Python"></category></entry><entry><title>Fiddler 無法抓取封包之 port 占用...</title><link href="https://shen-sj.github.io/articles/2020/06/05/fiddler-wu-fa-zhua-qu-feng-bao-zhi-port-zhan-yong/" rel="alternate"></link><published>2020-06-05T22:30:00+00:00</published><updated>2020-06-05T22:30:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-06-05:/articles/2020/06/05/fiddler-wu-fa-zhua-qu-feng-bao-zhi-port-zhan-yong/</id><summary type="html">&lt;p&gt;最近在寫網路爬蟲有用到 Fiddler 抓包軟體幫我看看用自己寫的程式送出與接收到的封包內容與直接用瀏覽器做這些動作有什麼不一樣...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  事發經過&lt;/h2&gt;
 &lt;p&gt;最近在寫網路爬蟲有用到 Fiddler 抓包軟體幫我看看用自己寫的程式送出與接收到的封包內容與直接用瀏覽器做這些動作有什麼不一樣，
 進而去做一些程式碼的修改，一開始這個 Fiddler 抓包都用得好好的，但突然有一天一樣用 Fiddler 抓取我運行的爬蟲程式封包時候居然出現：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="err"&gt;Traceback (most recent call last):&lt;/span&gt;
