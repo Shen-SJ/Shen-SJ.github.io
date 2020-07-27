@@ -8,6 +8,7 @@ AspenPlus 給連接起來吧~&lt;/p&gt;
 &lt;li&gt;&lt;a href="#安裝相關程式與packages"&gt;安裝相關程式與 packages&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#用Python連接AspenPlus檔案"&gt;用 Python 連接 AspenPlus 檔案&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#在AspenPlus中找指定變數的路徑"&gt;在 AspenPlus 中找指定變數的路徑&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#完整的code"&gt;完整的 code&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#結語"&gt;結語&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="#參考資料"&gt;參考資料&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
@@ -91,18 +92,32 @@ AspenPlus 給連接起來吧~&lt;/p&gt;
 &lt;img alt="找到路徑了！" src="https://drive.google.com/uc?export=view&amp;amp;id=1hrD3RA6p_hbch4h0OZe4gCrdlkADQ10U"&gt;&lt;/p&gt;
 &lt;p&gt;假設現在你要得到這塔頂壓力的值是多少，從表格來看，&lt;strong&gt;Value&lt;/strong&gt;屬性應該就是你的壓力值，程式就可以這樣寫：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;b1_p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Blocks&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;B1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PRES1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt;
-&lt;span class="n"&gt;b1_p2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FindNode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;\Data\Blocks\B1\Input\PRES1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt;    &lt;span class="c1"&gt;# 跟上面那行的作用是一樣的&lt;/span&gt;
+&lt;span class="n"&gt;b1_p2&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FindNode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;\Data\Blocks\B1\Input\PRES1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt;    &lt;span class="c1"&gt;# 跟上面那行的作用是一樣的&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;前面的路徑只是把 Application 改成我們取名的 aspen 而已，基本上一樣，再來就是&lt;strong&gt;.Value&lt;/strong&gt;來得到我們的值這樣，另外要設定這個值
 也是非常簡單，就跟平常妳寫程式用&lt;strong&gt;=&lt;/strong&gt;來做就好：&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Blocks&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;B1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PRES1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;
-&lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FindNode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;\Data\Blocks\B1\Input\PRES1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;    &lt;span class="c1"&gt;# 跟上面那行的作用是一樣的&lt;/span&gt;
+&lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FindNode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;\Data\Blocks\B1\Input\PRES1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;    &lt;span class="c1"&gt;# 跟上面那行的作用是一樣的&lt;/span&gt;
 &lt;/pre&gt;&lt;/div&gt;
 
 
 &lt;p&gt;現在我把壓力設為 2 bar 了~&lt;/p&gt;
+&lt;h2 id="完整的code"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  完整的 code&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;上面的 code 為了要解說感覺有點亂，就在這邊寫一次完整的 code 吧~&lt;br&gt;
+目標：用 Python 連接 AspenPlus V8.8 的 Simulation 1.apw 檔案，讀取 B1 塔的塔頂壓力並將其改成 2 bar。&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre&gt;&lt;span&gt;&lt;/span&gt;&lt;span class="kn"&gt;import&lt;/span&gt; &lt;span class="nn"&gt;win32com.client&lt;/span&gt; &lt;span class="k"&gt;as&lt;/span&gt; &lt;span class="nn"&gt;win32&lt;/span&gt;     &lt;span class="c1"&gt;# 匯入所需模組包&lt;/span&gt;
+
+&lt;span class="n"&gt;aspen&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;win32&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Dispatch&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;Apw.Document.34.0&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;     &lt;span class="c1"&gt;# 開啟 AspenPlus V8.8 程式&lt;/span&gt;
+&lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;InitFromArchive2&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;C:&lt;/span&gt;&lt;span class="se"&gt;\\&lt;/span&gt;&lt;span class="s1"&gt;Simulation 1.apw&amp;#39;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;  &lt;span class="c1"&gt;# 打開 C:\\Simulation 1.apw 檔案&lt;/span&gt;
+
+&lt;span class="n"&gt;b1_p&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Data&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Blocks&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;B1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Input&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;PRES1&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt;  &lt;span class="c1"&gt;# 取得 B1 塔頂壓力的值&lt;/span&gt;
+
+&lt;span class="n"&gt;aspen&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Tree&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;FindNode&lt;/span&gt;&lt;span class="p"&gt;(&lt;/span&gt;&lt;span class="sa"&gt;r&lt;/span&gt;&lt;span class="s2"&gt;&amp;quot;\Data\Blocks\B1\Input\PRES1&amp;quot;&lt;/span&gt;&lt;span class="p"&gt;)&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="n"&gt;Value&lt;/span&gt; &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="mi"&gt;2&lt;/span&gt;   &lt;span class="c1"&gt;# 將 B1 塔頂壓力改為 2 bar&lt;/span&gt;
+&lt;/pre&gt;&lt;/div&gt;
+
+
 &lt;h2 id="結語"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  結語&lt;/h2&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;以上就是一個非常簡單得如何用 Python 連接 AspenPlus 的方式，裡面其實還有很多功能與坑沒說到，功能的話大部分 UserGuiude 都會介紹到，
 可以去參考參考，真的覺得 UserGuide 算是蠻重要的，可以好好的看看，那坑的話像是你要取用的屬性如 Physical Quantity 這種名子裡面有空格
