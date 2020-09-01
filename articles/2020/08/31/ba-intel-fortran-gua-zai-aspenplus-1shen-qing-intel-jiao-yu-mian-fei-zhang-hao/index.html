@@ -15,7 +15,7 @@
 <link rel="canonical" href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/">
 
         <meta name="author" content="SSJ" />
-        <meta name="keywords" content="Intel,Fortran,AspenPlus" />
+        <meta name="keywords" content="Intel,Fortran,AspenPlus,AspenTech" />
         <meta name="description" content="我們在跑 AspenPlus 模擬的時候，如果像是動力式非常複雜但內建的反應蒸餾塔只能支持 Power law，那就只能自己掛 Fortran 上..." />
 
         <meta property="og:site_name" content="SSJ's Blog" />
@@ -28,6 +28,7 @@
             <meta property="article:tag" content="Intel" />
             <meta property="article:tag" content="Fortran" />
             <meta property="article:tag" content="AspenPlus" />
+            <meta property="article:tag" content="AspenTech" />
             <meta property="article:author" content="SSJ" />
 
 
@@ -122,6 +123,8 @@ SSJ's Blog            </a>
 	<a href="https://shen-sj.github.io/tag/fortran">Fortran</a>
         /
 	<a href="https://shen-sj.github.io/tag/aspenplus">AspenPlus</a>
+        /
+	<a href="https://shen-sj.github.io/tag/aspentech">AspenTech</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
@@ -132,7 +135,13 @@ AspenPlus 了，要將 Fortran 掛到 AspenPlus 上就會遇到兩個問題：<b
 "Set Compiler"來看，好像都不支援最新的 Fortran 編譯器。<br>
 其實上面那兩個問題都是可以解決的，我們學生與教育工作者，不只能用免費的 Intel Fortran，還可以用最新的 Fortran 編譯器！但需要一些繁瑣的
 步驟就是，因此我在這邊把這步驟分享出來，希望大家可以一起來使用正版又最新的 Fortran 編譯器喔~~  <br>
-&emsp;&emsp;因為這步驟有點多，所以我會分為幾個文章來撰寫，首先我們就申請 Intel Fortran Compiler 的免費教育使用板吧~</p>
+&emsp;&emsp;因為這步驟有點多，所以我會分為幾個文章來撰寫，首先我們就申請 Intel Fortran Compiler 的免費教育使用板吧~
+如果需要看其他步驟，下面有目錄連結就點進去看吧~</p>
+<h2><i class="fas fa-crow"></i>  系列文章目錄</h2>
+<ul>
+<li><a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/">把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號</a></li>
+<li><a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/">把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio</a></li>
+</ul>
 <h2><i class="fas fa-crow"></i>  申請 Intel Parallel Studio XE 教育版</h2>
 <p>&emsp;&emsp;Intel Fortran Compiler 目前是包在 Intel Parallel Studio XE 這個產品包裡面，只要申請這這整個包的教育使用認證就可以
 使用 Intel Fortran 了，首先我們就先在搜尋引擎尋找這個產品包：<br>
@@ -152,8 +161,8 @@ AspenPlus 了，要將 Fortran 掛到 AspenPlus 上就會遇到兩個問題：<b
 <img alt="下載Windows軟體" src="https://drive.google.com/uc?export=view&amp;id=1QAOTHx0Th6Ayv0-0qIiGkyBcihF9wxJH">  </p>
 <p>接下來 Intel 會要你創一個帳號用來管理你的憑證的，我們就可以登入帳號看到憑證的有效期限以及可以使用的產品並下載，這邊一樣把你想要創的帳號密碼、
 個人資料與該勾選的勾一勾後，就按下下面的<strong>Create an Account</strong>：
-<img alt="創Intel帳號" src="https://drive.google.com/uc?export=view&amp;id=1ZZnGE9eshjgB-5oUP8c-67cIXXuz7OHp">  </p>
-<p><img alt="確認送出Intel帳號" src="https://drive.google.com/uc?export=view&amp;id=1fyYwj7uIzrwFQgkGmYwxQLuO1XoTBe5p">  </p>
+<img alt="創Intel帳號" src="https://drive.google.com/uc?export=view&amp;id=1ZZnGE9eshjgB-5oUP8c-67cIXXuz7OHp"><br>
+<img alt="確認送出Intel帳號" src="https://drive.google.com/uc?export=view&amp;id=1fyYwj7uIzrwFQgkGmYwxQLuO1XoTBe5p">  </p>
 <p>上述的步驟都完成了後，就可以到剛剛我們申請憑證的信箱收信了，如果沒收到可能是 Intel 那邊還在審核吧，就等一段時間好了，我們應該會看到兩封信，
 其中一封就是你的 Intel Parallel Studio XE 教育版（Intel Fortran Compiler 就在裡面）憑證，在下圖的紅色圈圈裡的馬賽克這序號要自己收
 好不要讓別人看到，如果找不到這封信還可以登入你剛剛申請的 Intel 帳號看就是：
@@ -163,12 +172,18 @@ AspenPlus 了，要將 Fortran 掛到 AspenPlus 上就會遇到兩個問題：<b
 <p>如果你看到下圖的樣子，表示你的 Intel Fortran 免費教育板就申請成功了！！距離使用 Fortran 在 AspenPlus 上已經距離一大步了哈哈哈：
 <img alt="成功認證帳號" src="https://drive.google.com/uc?export=view&amp;id=1fN51rBfv2jGCD9IJYmH9nqA3aZr-5pcS">  </p>
 <h2><i class="fas fa-crow"></i> 結語</h2>
-<p>&emsp;&emsp;其實本來我想要寫這部落格就是想要來介紹不用錢的 Intel Fortran 怎麼申請還有怎麼把它掛到 AspenPlus 上面，拖到現在才開始寫呢@@
+<p>&emsp;&emsp;這步驟就是先申請 Intel Fortran Compiler 的免費教育板，不過在下載安裝這個之前，我們先把 Visual Studio 給安裝好，下篇文章
+就會介紹怎麼安裝以及講解安裝的注意事項了~
+&emsp;&emsp;其實本來我想要寫這部落格就是想要來介紹不用錢的 Intel Fortran 怎麼申請還有怎麼把它掛到 AspenPlus 上面，拖到現在才開始寫呢@@
 希望我可以很有毅力的繼續把其他文章給寫完...</p>
             </div>
             <!-- /.entry-content -->
 <section class="well" id="related-posts">
     <h4>Part 1 of the 把 Intel Fortran 掛在 AspenPlus series</h4>
+       <h5>Next articles</h5>
+       <ul>
+           <li><a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/">把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio</a></li>
+       </ul>
 </section>
     <hr/>
     <section class="comments" id="comments">
@@ -232,11 +247,11 @@ AspenPlus 了，要將 Fortran 掛到 AspenPlus 上就會遇到兩個問題：<b
 <li class="list-group-item">
   <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
   <ul class="list-group" id="recentposts">
+    <li class="list-group-item"><a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/">把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio</a></li>
     <li class="list-group-item"><a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/">把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號</a></li>
     <li class="list-group-item"><a href="https://shen-sj.github.io/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/">用 Python 將 AspenPlus 連接起來！！</a></li>
     <li class="list-group-item"><a href="https://shen-sj.github.io/articles/2020/06/05/fiddler-wu-fa-zhua-qu-feng-bao-zhi-port-zhan-yong/">Fiddler 無法抓取封包之 port 占用...</a></li>
     <li class="list-group-item"><a href="https://shen-sj.github.io/articles/2020/03/29/yong-softetherjia-she-zi-ji-de-vpn/">用SoftEther架設自己的VPN</a></li>
-    <li class="list-group-item"><a href="https://shen-sj.github.io/articles/2020/03/28/yong-pelicangao-bu-luo-ge-yu-dao-de-python-importmo-zu-wen-ti/">用Pelican搞部落格遇到的python import模組問題...</a></li>
   </ul>
 </li>
 <!-- End Sidebar/Recent Posts -->
@@ -248,7 +263,7 @@ AspenPlus 了，要將 Fortran 掛到 AspenPlus 上就會遇到兩個問題：<b
     <li class="list-group-item tag-1">
       <a href="https://shen-sj.github.io/tag/aspenplus">AspenPlus</a>
     </li>
-    <li class="list-group-item tag-4">
+    <li class="list-group-item tag-1">
       <a href="https://shen-sj.github.io/tag/aspentech">AspenTech</a>
     </li>
     <li class="list-group-item tag-4">
@@ -257,13 +272,13 @@ AspenPlus 了，要將 Fortran 掛到 AspenPlus 上就會遇到兩個問題：<b
     <li class="list-group-item tag-4">
       <a href="https://shen-sj.github.io/tag/fiddler">Fiddler</a>
     </li>
-    <li class="list-group-item tag-4">
+    <li class="list-group-item tag-2">
       <a href="https://shen-sj.github.io/tag/fortran">Fortran</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="https://shen-sj.github.io/tag/icon">icon</a>
     </li>
-    <li class="list-group-item tag-4">
+    <li class="list-group-item tag-2">
       <a href="https://shen-sj.github.io/tag/intel">Intel</a>
     </li>
     <li class="list-group-item tag-4">
@@ -272,14 +287,17 @@ AspenPlus 了，要將 Fortran 掛到 AspenPlus 上就會遇到兩個問題：<b
     <li class="list-group-item tag-4">
       <a href="https://shen-sj.github.io/tag/pelican">Pelican</a>
     </li>
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-2">
       <a href="https://shen-sj.github.io/tag/picture">picture</a>
     </li>
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-2">
       <a href="https://shen-sj.github.io/tag/python">Python</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="https://shen-sj.github.io/tag/softether-vpn">SoftEther VPN</a>
+    </li>
+    <li class="list-group-item tag-4">
+      <a href="https://shen-sj.github.io/tag/visual-studio">Visual Studio</a>
     </li>
     <li class="list-group-item tag-4">
       <a href="https://shen-sj.github.io/tag/vpn">VPN</a>

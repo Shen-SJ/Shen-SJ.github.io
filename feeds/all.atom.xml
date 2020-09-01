@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>SSJ's Blog</title><link href="https://shen-sj.github.io/" rel="alternate"></link><link href="https://shen-sj.github.io/feeds/all.atom.xml" rel="self"></link><id>https://shen-sj.github.io/</id><updated>2020-08-31T00:00:00+00:00</updated><entry><title>把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號</title><link href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/" rel="alternate"></link><published>2020-08-31T00:00:00+00:00</published><updated>2020-08-31T00:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-08-31:/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/</id><summary type="html">&lt;p&gt;我們在跑 AspenPlus 模擬的時候，如果像是動力式非常複雜但內建的反應蒸餾塔只能支持 Power law，那就只能自己掛 Fortran 上...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SSJ's Blog</title><link href="https://shen-sj.github.io/" rel="alternate"></link><link href="https://shen-sj.github.io/feeds/all.atom.xml" rel="self"></link><id>https://shen-sj.github.io/</id><updated>2020-09-01T00:00:00+00:00</updated><entry><title>把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio</title><link href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/" rel="alternate"></link><published>2020-09-01T00:00:00+00:00</published><updated>2020-09-01T00:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-09-01:/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/</id><summary type="html">&lt;p&gt;上一篇文章教了怎麼申請 Intel Fortran Compiler 免費教育版，再來就是要準備安裝了！不過在安裝 Fortran 前，我們先來安裝 Visual Studio...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;上一篇文章教了怎麼申請 Intel Fortran Compiler 免費教育版，再來就是要準備安裝了！不過在安裝 Fortran 前，我們先來安裝
+Visual Studio，因為跑 Fortran 的時候會需要用到 Visual Studio 的 C++ 套件，另外就是安裝 Fortran 時，會幫你在 Visual Studio 新增
+&lt;strong&gt;Fortran專案&lt;/strong&gt;，意思就是你可以用 Visual Studio 來寫 Fortran，編譯器路徑、Debug等等環境在你建立這 Fortran 專案後就會幫你設治好了，
+對於想要純寫 Fortran 的人來說可是相當方便！那現在我們就來開始安裝 Visual Studio 吧~
+如果需要看其他步驟，下面有目錄連結就點進去看吧~&lt;/p&gt;
+&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  系列文章目錄&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/"&gt;把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/"&gt;把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  安裝 Visual Studio Community&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;首先一樣就是先在搜尋引擎找&lt;strong&gt;Visual Studio&lt;/strong&gt;，在我的畫面是第一個所以我就點第一個進去：
+&lt;img alt="搜尋VisualStudio" src="https://drive.google.com/uc?export=view&amp;amp;id=1v_z--3tAjp900q-CxtQtSzLiJl00ymjn"&gt;  &lt;/p&gt;
+&lt;p&gt;再來就是點&lt;strong&gt;下載Visual Studio&lt;/strong&gt;了，應該沒有甚麼爭議，然後可以看到三個版本，因為裡面只有 Community 版是免費，其他都是要錢的，所以就點擊
+Community 2019(看你下載的年份是哪一年就下在那一年的 Community 版即可)，如果你有錢有其他版本的 License 那也是可以，不過在後面可能就要
+稍微設定一下了，我們就後面再說吧：
+&lt;img alt="下載VisualStudioCommunity" src="https://drive.google.com/uc?export=view&amp;amp;id=12j68QG8qtk_typqeyHT7KabbwOfq4UD4"&gt;  &lt;/p&gt;
+&lt;p&gt;下載完成後就是點開應用程式進行安裝：
+&lt;img alt="點擊應用程式安裝" src="https://drive.google.com/uc?export=view&amp;amp;id=1jB-UB4lUHFiADUaXKWv0c1gFHN1R0ltc"&gt; &lt;/p&gt;
+&lt;p&gt;後面就是按繼續，然後讓它自己準備安裝的東西這樣，但它還沒開始安裝喔，只是先&lt;strong&gt;準備安裝&lt;/strong&gt;而已：
+&lt;img alt="繼續安裝" src="https://drive.google.com/uc?export=view&amp;amp;id=1Em0mnn02l7RSkTWRM6agaRHd7IsTqoDX"&gt; 
+&lt;img alt="繼續安裝" src="https://drive.google.com/uc?export=view&amp;amp;id=1avuRj4edKuSwGLdn0fdnmRnInSgQtKr9"&gt; &lt;/p&gt;
+&lt;p&gt;這邊就是勾選 C++ 套件相關的東西就可以了，勾選好了就可以點擊右下角的&lt;strong&gt;安裝&lt;/strong&gt;按紐：
+&lt;img alt="繼續安裝" src="https://drive.google.com/uc?export=view&amp;amp;id=1yvCbO5YO_jROW4m1B7Zf-RI7_rVMVyni"&gt; &lt;/p&gt;
+&lt;p&gt;接下來就是漫長的等待了，等到這畫面結束後就安裝好了！
+&lt;img alt="繼續安裝" src="https://drive.google.com/uc?export=view&amp;amp;id=1eqdcMT7-9tandcR9COLJ1IA3QUWHuDgd"&gt; &lt;/p&gt;
+&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt; 結語&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;Visual Studio Community 與 C++ 相關套件安裝好了之後我們就可以來安裝 Intel Fortran Compiler 了，下面的文章就會解講安裝
+Fortran 編譯器的一些注意事項了~ &lt;/p&gt;</content><category term="blogging"></category><category term="Intel"></category><category term="Fortran"></category><category term="Visual Studio"></category><category term="AspenPlus"></category><category term="AspenTech"></category></entry><entry><title>把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號</title><link href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/" rel="alternate"></link><published>2020-08-31T00:00:00+00:00</published><updated>2020-08-31T00:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-08-31:/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/</id><summary type="html">&lt;p&gt;我們在跑 AspenPlus 模擬的時候，如果像是動力式非常複雜但內建的反應蒸餾塔只能支持 Power law，那就只能自己掛 Fortran 上...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;我們在跑 AspenPlus 模擬的時候，如果像是動力式非常複雜但內建的反應蒸餾塔只能支持 Power law，那就只能自己掛 Fortran 上 
 AspenPlus 了，要將 Fortran 掛到 AspenPlus 上就會遇到兩個問題：&lt;br&gt;
 第一，AspenPlus 只能使用 Intel Fortran Compiler，但那個又要錢啊，因此可能有些人會找網路上的"參考版"來用；第二，從 AspenPlus 上的
 "Set Compiler"來看，好像都不支援最新的 Fortran 編譯器。&lt;br&gt;
 其實上面那兩個問題都是可以解決的，我們學生與教育工作者，不只能用免費的 Intel Fortran，還可以用最新的 Fortran 編譯器！但需要一些繁瑣的
 步驟就是，因此我在這邊把這步驟分享出來，希望大家可以一起來使用正版又最新的 Fortran 編譯器喔~~  &lt;br&gt;
-&amp;emsp;&amp;emsp;因為這步驟有點多，所以我會分為幾個文章來撰寫，首先我們就申請 Intel Fortran Compiler 的免費教育使用板吧~&lt;/p&gt;
+&amp;emsp;&amp;emsp;因為這步驟有點多，所以我會分為幾個文章來撰寫，首先我們就申請 Intel Fortran Compiler 的免費教育使用板吧~
+如果需要看其他步驟，下面有目錄連結就點進去看吧~&lt;/p&gt;
+&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  系列文章目錄&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/"&gt;把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/"&gt;把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
 &lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  申請 Intel Parallel Studio XE 教育版&lt;/h2&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;Intel Fortran Compiler 目前是包在 Intel Parallel Studio XE 這個產品包裡面，只要申請這這整個包的教育使用認證就可以
 使用 Intel Fortran 了，首先我們就先在搜尋引擎尋找這個產品包：&lt;br&gt;
@@ -26,8 +61,8 @@ AspenPlus 了，要將 Fortran 掛到 AspenPlus 上就會遇到兩個問題：&l
 &lt;img alt="下載Windows軟體" src="https://drive.google.com/uc?export=view&amp;amp;id=1QAOTHx0Th6Ayv0-0qIiGkyBcihF9wxJH"&gt;  &lt;/p&gt;
 &lt;p&gt;接下來 Intel 會要你創一個帳號用來管理你的憑證的，我們就可以登入帳號看到憑證的有效期限以及可以使用的產品並下載，這邊一樣把你想要創的帳號密碼、
 個人資料與該勾選的勾一勾後，就按下下面的&lt;strong&gt;Create an Account&lt;/strong&gt;：
-&lt;img alt="創Intel帳號" src="https://drive.google.com/uc?export=view&amp;amp;id=1ZZnGE9eshjgB-5oUP8c-67cIXXuz7OHp"&gt;  &lt;/p&gt;
-&lt;p&gt;&lt;img alt="確認送出Intel帳號" src="https://drive.google.com/uc?export=view&amp;amp;id=1fyYwj7uIzrwFQgkGmYwxQLuO1XoTBe5p"&gt;  &lt;/p&gt;
+&lt;img alt="創Intel帳號" src="https://drive.google.com/uc?export=view&amp;amp;id=1ZZnGE9eshjgB-5oUP8c-67cIXXuz7OHp"&gt;&lt;br&gt;
+&lt;img alt="確認送出Intel帳號" src="https://drive.google.com/uc?export=view&amp;amp;id=1fyYwj7uIzrwFQgkGmYwxQLuO1XoTBe5p"&gt;  &lt;/p&gt;
 &lt;p&gt;上述的步驟都完成了後，就可以到剛剛我們申請憑證的信箱收信了，如果沒收到可能是 Intel 那邊還在審核吧，就等一段時間好了，我們應該會看到兩封信，
 其中一封就是你的 Intel Parallel Studio XE 教育版（Intel Fortran Compiler 就在裡面）憑證，在下圖的紅色圈圈裡的馬賽克這序號要自己收
 好不要讓別人看到，如果找不到這封信還可以登入你剛剛申請的 Intel 帳號看就是：
@@ -37,8 +72,10 @@ AspenPlus 了，要將 Fortran 掛到 AspenPlus 上就會遇到兩個問題：&l
 &lt;p&gt;如果你看到下圖的樣子，表示你的 Intel Fortran 免費教育板就申請成功了！！距離使用 Fortran 在 AspenPlus 上已經距離一大步了哈哈哈：
 &lt;img alt="成功認證帳號" src="https://drive.google.com/uc?export=view&amp;amp;id=1fN51rBfv2jGCD9IJYmH9nqA3aZr-5pcS"&gt;  &lt;/p&gt;
 &lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt; 結語&lt;/h2&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;其實本來我想要寫這部落格就是想要來介紹不用錢的 Intel Fortran 怎麼申請還有怎麼把它掛到 AspenPlus 上面，拖到現在才開始寫呢@@
-希望我可以很有毅力的繼續把其他文章給寫完...&lt;/p&gt;</content><category term="blogging"></category><category term="Intel"></category><category term="Fortran"></category><category term="AspenPlus"></category></entry><entry><title>用 Python 將 AspenPlus 連接起來！！</title><link href="https://shen-sj.github.io/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/" rel="alternate"></link><published>2020-07-26T13:00:00+00:00</published><updated>2020-07-26T13:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-07-26:/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/</id><summary type="html">&lt;p&gt;最近被人家問要怎麼用 Python 把 AspenPlus 連接起來，突然想到其實我這部落格的創立就是想說寫一些 AspenPlus/Dynamics ...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;這步驟就是先申請 Intel Fortran Compiler 的免費教育板，不過在下載安裝這個之前，我們先把 Visual Studio 給安裝好，下篇文章
+就會介紹怎麼安裝以及講解安裝的注意事項了~
+&amp;emsp;&amp;emsp;其實本來我想要寫這部落格就是想要來介紹不用錢的 Intel Fortran 怎麼申請還有怎麼把它掛到 AspenPlus 上面，拖到現在才開始寫呢@@
+希望我可以很有毅力的繼續把其他文章給寫完...&lt;/p&gt;</content><category term="blogging"></category><category term="Intel"></category><category term="Fortran"></category><category term="AspenPlus"></category><category term="AspenTech"></category></entry><entry><title>用 Python 將 AspenPlus 連接起來！！</title><link href="https://shen-sj.github.io/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/" rel="alternate"></link><published>2020-07-26T13:00:00+00:00</published><updated>2020-07-26T13:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-07-26:/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/</id><summary type="html">&lt;p&gt;最近被人家問要怎麼用 Python 把 AspenPlus 連接起來，突然想到其實我這部落格的創立就是想說寫一些 AspenPlus/Dynamics ...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;最近被人家問要怎麼用 Python 把 AspenPlus 連接起來，突然想到其實我這部落格的創立就是想說寫一些 AspenPlus/Dynamics 與
 Python/Fortran 連接相關的說明書這樣，不然重新去看英文的說明書其實頗累的，我英文也不好...那今天就是先來介紹怎麼用 Python 將
 AspenPlus 給連接起來吧~&lt;/p&gt;
