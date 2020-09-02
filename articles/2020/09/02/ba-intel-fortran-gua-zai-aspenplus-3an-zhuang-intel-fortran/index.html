@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Welcome to my blog! - SSJ's Blog</title>
+    <title>把 Intel Fortran 掛在 AspenPlus （3）安裝 Intel Fortran - SSJ's Blog</title>
     <!-- Place your kit's code here -->
     <script src="https://kit.fontawesome.com/1aa695b259.js" crossorigin="anonymous"></script>
     <!-- Using the latest rendering mode for IE -->
@@ -12,21 +12,24 @@
 
     <link href="https://shen-sj.github.io/img/logo.png" rel="icon">
 
-<link rel="canonical" href="https://shen-sj.github.io/drafts/welcome.html">
+<link rel="canonical" href="https://shen-sj.github.io/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/">
 
-        <meta name="author" content="Craig" />
-        <meta name="keywords" content="welcome" />
-        <meta name="description" content="Welcome document" />
+        <meta name="author" content="SSJ" />
+        <meta name="keywords" content="Intel,Fortran,AspenPlus,AspenTech" />
+        <meta name="description" content="在你的 Intel Fortran 申請好了與 Visual Studio 也安裝好了後我們就可以來安裝 Intel Fortran Compiler 了..." />
 
         <meta property="og:site_name" content="SSJ's Blog" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Welcome to my blog!"/>
-        <meta property="og:url" content="https://shen-sj.github.io/drafts/welcome.html"/>
-        <meta property="og:description" content="Welcome document"/>
-        <meta property="article:published_time" content="2018-12-16" />
-            <meta property="article:section" content="Intro" />
-            <meta property="article:tag" content="welcome" />
-            <meta property="article:author" content="Craig" />
+        <meta property="og:title" content="把 Intel Fortran 掛在 AspenPlus （3）安裝 Intel Fortran"/>
+        <meta property="og:url" content="https://shen-sj.github.io/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/"/>
+        <meta property="og:description" content="在你的 Intel Fortran 申請好了與 Visual Studio 也安裝好了後我們就可以來安裝 Intel Fortran Compiler 了..."/>
+        <meta property="article:published_time" content="2020-09-02" />
+            <meta property="article:section" content="blogging" />
+            <meta property="article:tag" content="Intel" />
+            <meta property="article:tag" content="Fortran" />
+            <meta property="article:tag" content="AspenPlus" />
+            <meta property="article:tag" content="AspenTech" />
+            <meta property="article:author" content="SSJ" />
 
 
 
@@ -42,8 +45,8 @@
         <link href="https://shen-sj.github.io/feeds/all.atom.xml" type="application/atom+xml" rel="alternate"
               title="SSJ's Blog ATOM Feed"/>
 
-        <link href="https://shen-sj.github.io/feeds/intro.atom.xml" type="application/atom+xml" rel="alternate"
-              title="SSJ's Blog Intro ATOM Feed"/>
+        <link href="https://shen-sj.github.io/feeds/blogging.atom.xml" type="application/atom+xml" rel="alternate"
+              title="SSJ's Blog blogging ATOM Feed"/>
 </head>
 <body>
 
@@ -64,7 +67,7 @@ SSJ's Blog            </a>
                          <li><a href="https://shen-sj.github.io/pages/about/">
                              About
                           </a></li>
-                        <li >
+                        <li class="active">
                             <a href="https://shen-sj.github.io/category/blogging">Blogging</a>
                         </li>
                         <li >
@@ -94,10 +97,10 @@ SSJ's Blog            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="https://shen-sj.github.io/drafts/welcome.html"
+                    <a href="https://shen-sj.github.io/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/"
                        rel="bookmark"
-                       title="Permalink to Welcome to my blog!">
-                        Welcome to my blog!
+                       title="Permalink to 把 Intel Fortran 掛在 AspenPlus （3）安裝 Intel Fortran">
+                        把 Intel Fortran 掛在 AspenPlus （3）安裝 Intel Fortran
                     </a>
                 </h1>
             </header>
@@ -107,7 +110,7 @@ SSJ's Blog            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2018-12-16T08:30:00+00:00"> 週日 16 十二月 2018</time>
+        <i class="fa fa-calendar"></i><time datetime="2020-09-02T00:00:00+00:00"> 週三 02 九月 2020</time>
     </span>
 
 
@@ -115,15 +118,79 @@ SSJ's Blog            </a>
 
 
 <span class="label label-default">Tags</span>
-	<a href="https://shen-sj.github.io/tag/welcome">welcome</a>
+	<a href="https://shen-sj.github.io/tag/intel">Intel</a>
+        /
+	<a href="https://shen-sj.github.io/tag/fortran">Fortran</a>
+        /
+	<a href="https://shen-sj.github.io/tag/aspenplus">AspenPlus</a>
+        /
+	<a href="https://shen-sj.github.io/tag/aspentech">AspenTech</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <p>Welcome to my blog.
-This is a short page just to show how to put up a static page.</p>
-
+                <h2><i class="fas fa-crow"></i>  前言</h2>
+<p>&emsp;&emsp;在你的 Intel Fortran 申請好了與 Visual Studio 也安裝好了後我們就可以來下載並安裝 Intel Fortran Compiler 了！<br>
+如果需要看其他步驟，下面有目錄連結就點進去看吧~</p>
+<h2><i class="fas fa-crow"></i>  系列文章目錄</h2>
+<ul>
+<li><a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/">把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號</a></li>
+<li><a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/">把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio</a></li>
+<li><a href="https://shen-sj.github.io/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/">把 Intel Fortran 掛在 AspenPlus （3）安裝 Intel Fortran</a></li>
+</ul>
+<h2><i class="fas fa-crow"></i>  下載 Intel Fortran</h2>
+<p>&emsp;&emsp;安裝之前我們就先來下載安裝檔案，我們一樣先在瀏覽器搜尋<strong>Intel</strong>或者直接點這的<a href="https://www.intel.com.tw">連結</a>過去，
+然後就是先登入我們在第一步驟申請的 Intel 帳號密碼：<br>
+<img alt="登入Intel" src="https://drive.google.com/uc?export=view&amp;id=12bry-2OiqxRIP8FNdsDNvWPjRw9xm4Gn"></p>
+<p>登入後就進入<strong>My Intel 儀錶板/My Intel Dashboard</strong>：<br>
+<img alt="進入Dashboard" src="https://drive.google.com/uc?export=view&amp;id=1_4nvDCKmUWbY8I3Q5fJTyhtxbRF2hYpA"></p>
+<p>接下來會進到你的個人帳號資訊畫面，往下拉找到<strong>My Content</strong>地方並把它展開，可以看到你申請的 Intel Parallel Studio XE 在列表當中，還有你的
+免費教育板 License 跟其有效期限，點擊<strong>Download Options</strong>：<br>
+<img alt="點擊Download Options" src="https://drive.google.com/uc?export=view&amp;id=1BUSYN20EbEHYAnQozKxhumZGSglv3aGi"></p>
+<p>我們會進到 Intel Parallel Studio XE 的下載產品列表，可以看到列表中的<strong>Intel Parallel Studio XE Composer Edition for Fortran and C++ Windows</strong>
+就是我們要下載的 Intel Fortran Compiler了，所以我們就點擊這產品右邊的<strong>Download</strong>來下載：<br>
+<img alt="點擊IntelFortran" src="https://drive.google.com/uc?export=view&amp;id=160Tx6DKsLrtAe1AL5R-qgGaPhZXgmG9s"></p>
+<p>在這邊可以選擇我們要下載的 Intel Fortran 版本年限，但只有近幾年的而已，不過既然新的版本可以用就用新的，功能比較多可能也比較沒有以前版本奇怪的
+Bug，但我也怕太新的版本會有新 Bug ，所以這邊示範就下載第二新的<strong>2020 Update 1</strong>版本（這邊看你下載列表有甚麼就從裡面選想要的版本就好，
+一段時間後列表應該會跟現在長的不一樣）：<br>
+<img alt="選IntelFortran下載版本" src="https://drive.google.com/uc?export=view&amp;id=1piRz2xg2wKusVQbdT6CqyCwZl7qoMbcE"></p>
+<p>選好版本後就可以下載了，可以看到下面有兩種下載選項，第一種<strong>Customizable Package</strong>就是你只會下載一個很小的檔案，透過這檔案在安裝的時候只會
+從網路上下載你指定幾個需要安裝的軟體就好，可以節省下載的時間（就算你從Intel Parallel Studio XE 選了 Fortran 下載，還是會有很多安裝選項可以
+選擇，像是一些 Fortran 相關模組包等等...），第二種<strong>Full Package</strong>就是會下載完整的安裝檔，下載時間比較久也比較大（不過在後面安裝步驟還是可以
+選擇安裝的東西，只是你已經下載下來了，沒安裝浪費你下載檔案的時間而已），這邊就是看你要哪一種安裝檔而已，隨便選都可以，那這邊我就選 Full Package
+好了，我時間很多XDD：<br>
+<img alt="下載IntelFortran安裝檔" src="https://drive.google.com/uc?export=view&amp;id=1g-lynfam1T_m15wskw_6AVR4lbUvnd1v"></p>
+<p>下載完就是一個安裝檔案，應該沒甚麼爭議就是右鍵兩下來啟動安裝，然後會問你一些安裝過程中會用到的檔案要放在哪邊這樣，安裝完它會自己刪掉，
+這邊我就預設路徑，按下<strong>Extract</strong>繼續安裝：<br>
+<img alt="點擊安裝檔" src="https://drive.google.com/uc?export=view&amp;id=1LaQpEAxSyUY2RD0atMFMWFHItNOAjgSW">
+<img alt="解壓縮安裝檔" src="https://drive.google.com/uc?export=view&amp;id=1XGoTrmbp0cFQjnG7kTc40YblVwqgmWte"></p>
+<p>這邊就可以看到安裝的選項了，至少我們的 Fortran 有安裝到，其它就看你自己要不要就好，這裡我就選這些東西安裝，然後按<strong>Next</strong>：<br>
+<img alt="勾選安裝選項" src="https://drive.google.com/uc?export=view&amp;id=1VNUxjNVKPmpoiAUkFwvYjDiCHxwyUrwa"></p>
+<p>後面這邊就是一些這軟體的使用條款與注意事項，沒問題就按<strong>I consent to the collection of my information</strong>與
+<strong>Next</strong>（沒選這個也沒辦法繼續安裝=.=）：<br>
+<img alt="軟體條款" src="https://drive.google.com/uc?export=view&amp;id=1QOdNBM-T9V28MwS7TipP3fMR9rty8DNi"></p>
+<p>這邊這個問題是因為我電腦的 CPU 不是 Intel 的是 AMD 的，所以跳出這警告，但 AMD 的 CPU 還是可以用的別緊張，就放心按<strong>Next</strong>就好XDD：<br>
+<img alt="非Intel CPU 的警告" src="https://drive.google.com/uc?export=view&amp;id=1PWJSlOdUMaALP5X7Csu2WrszaS_SMKM0"></p>
+<p>然後就在<strong>Provide a series number</strong>下面的框框輸入你的產品序號囉（序號在<a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/">第一篇</a>文章收的
+信當中，或是這篇你登入 Intel 帳號，進到 Dashboard 裡面的 My Content這邊），輸入好就按<strong>Install</strong>繼續安裝：<br>
+<img alt="輸入序號" src="https://drive.google.com/uc?export=view&amp;id=1fBQs0EuK9E1qfLn-FcTb5IneUoR22T1y"></p>
+<p>只能等它安裝好囉，這段時間有空就看看 paper 吧@@：<br>
+<img alt="等待安裝" src="https://drive.google.com/uc?export=view&amp;id=1NxsNBADQK3ka2lFne9a93BoccWdKp_b_"></p>
+<p>看到這畫面就恭喜你安裝完成了，快要可以在 AspenPlus 上面用 Fortran 了！！<br>
+<img alt="安裝完成" src="https://drive.google.com/uc?export=view&amp;id=1EjkuvIC8kG0luts85j6oonUCXmdNIPcQ"></p>
+<h2><i class="fas fa-crow"></i> 結語</h2>
+<p>&emsp;&emsp;到這邊，各種所需的軟體都已經安裝完畢了！（如果你的 AspenPlus 也安裝好的話）接下來的步驟我們只要讓 AspenPlus 找的到我們 Fortran
+與 Visual Studio 的路徑就可以了~那就是使用 AspenPlus 所附贈的<strong>Set Compiler</strong>應用程式來達成這個目的，但是因為預設的 Fortran/VS 列表版本
+都是比較舊的，所以我們必須去更新它，這樣才能認到我們新版的 Fortran/VS，下一篇就會介紹怎麼更新這個列表~</p>
             </div>
             <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Part 3 of the 把 Intel Fortran 掛在 AspenPlus series</h4>
+       <h5>Previous articles</h5>
+       <ul>
+           <li><a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/">把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號</a></li>
+           <li><a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/">把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio</a></li>
+       </ul>
+</section>
     <hr/>
     <section class="comments" id="comments">
         <h2>Comments</h2>
@@ -136,8 +203,8 @@ This is a short page just to show how to put up a static page.</p>
             var disqus_config = function () {
                 this.language = "en";
 
-                        this.page.identifier = '2018-12-16-welcome';
-                        this.page.url = 'https://shen-sj.github.io/drafts/welcome.html';
+                        this.page.identifier = '2020-09-02-ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran';
+                        this.page.url = 'https://shen-sj.github.io/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/';
             };
 
             /* * * DON'T EDIT BELOW THIS LINE * * */

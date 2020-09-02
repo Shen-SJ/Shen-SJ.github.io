@@ -1,14 +1,67 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>SSJ's Blog - blogging</title><link href="https://shen-sj.github.io/" rel="alternate"></link><link href="https://shen-sj.github.io/feeds/blogging.atom.xml" rel="self"></link><id>https://shen-sj.github.io/</id><updated>2020-09-01T00:00:00+00:00</updated><entry><title>把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio</title><link href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/" rel="alternate"></link><published>2020-09-01T00:00:00+00:00</published><updated>2020-09-01T00:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-09-01:/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/</id><summary type="html">&lt;p&gt;上一篇文章教了怎麼申請 Intel Fortran Compiler 免費教育版，再來就是要準備安裝了！不過在安裝 Fortran 前，我們先來安裝 Visual Studio...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
-&lt;p&gt;&amp;emsp;&amp;emsp;上一篇文章教了怎麼申請 Intel Fortran Compiler 免費教育版，再來就是要準備安裝了！不過在安裝 Fortran 前，我們先來安裝
-Visual Studio，因為跑 Fortran 的時候會需要用到 Visual Studio 的 C++ 套件，另外就是安裝 Fortran 時，會幫你在 Visual Studio 新增
-&lt;strong&gt;Fortran專案&lt;/strong&gt;，意思就是你可以用 Visual Studio 來寫 Fortran，編譯器路徑、Debug等等環境在你建立這 Fortran 專案後就會幫你設治好了，
-對於想要純寫 Fortran 的人來說可是相當方便！那現在我們就來開始安裝 Visual Studio 吧~
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SSJ's Blog - blogging</title><link href="https://shen-sj.github.io/" rel="alternate"></link><link href="https://shen-sj.github.io/feeds/blogging.atom.xml" rel="self"></link><id>https://shen-sj.github.io/</id><updated>2020-09-02T00:00:00+00:00</updated><entry><title>把 Intel Fortran 掛在 AspenPlus （3）安裝 Intel Fortran</title><link href="https://shen-sj.github.io/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/" rel="alternate"></link><published>2020-09-02T00:00:00+00:00</published><updated>2020-09-02T00:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-09-02:/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/</id><summary type="html">&lt;p&gt;在你的 Intel Fortran 申請好了與 Visual Studio 也安裝好了後我們就可以來安裝 Intel Fortran Compiler 了...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;在你的 Intel Fortran 申請好了與 Visual Studio 也安裝好了後我們就可以來下載並安裝 Intel Fortran Compiler 了！&lt;br&gt;
 如果需要看其他步驟，下面有目錄連結就點進去看吧~&lt;/p&gt;
 &lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  系列文章目錄&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/"&gt;把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/"&gt;把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/"&gt;把 Intel Fortran 掛在 AspenPlus （3）安裝 Intel Fortran&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  下載 Intel Fortran&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;安裝之前我們就先來下載安裝檔案，我們一樣先在瀏覽器搜尋&lt;strong&gt;Intel&lt;/strong&gt;或者直接點這的&lt;a href="https://www.intel.com.tw"&gt;連結&lt;/a&gt;過去，
+然後就是先登入我們在第一步驟申請的 Intel 帳號密碼：&lt;br&gt;
+&lt;img alt="登入Intel" src="https://drive.google.com/uc?export=view&amp;amp;id=12bry-2OiqxRIP8FNdsDNvWPjRw9xm4Gn"&gt;&lt;/p&gt;
+&lt;p&gt;登入後就進入&lt;strong&gt;My Intel 儀錶板/My Intel Dashboard&lt;/strong&gt;：&lt;br&gt;
+&lt;img alt="進入Dashboard" src="https://drive.google.com/uc?export=view&amp;amp;id=1_4nvDCKmUWbY8I3Q5fJTyhtxbRF2hYpA"&gt;&lt;/p&gt;
+&lt;p&gt;接下來會進到你的個人帳號資訊畫面，往下拉找到&lt;strong&gt;My Content&lt;/strong&gt;地方並把它展開，可以看到你申請的 Intel Parallel Studio XE 在列表當中，還有你的
+免費教育板 License 跟其有效期限，點擊&lt;strong&gt;Download Options&lt;/strong&gt;：&lt;br&gt;
+&lt;img alt="點擊Download Options" src="https://drive.google.com/uc?export=view&amp;amp;id=1BUSYN20EbEHYAnQozKxhumZGSglv3aGi"&gt;&lt;/p&gt;
+&lt;p&gt;我們會進到 Intel Parallel Studio XE 的下載產品列表，可以看到列表中的&lt;strong&gt;Intel Parallel Studio XE Composer Edition for Fortran and C++ Windows&lt;/strong&gt;
+就是我們要下載的 Intel Fortran Compiler了，所以我們就點擊這產品右邊的&lt;strong&gt;Download&lt;/strong&gt;來下載：&lt;br&gt;
+&lt;img alt="點擊IntelFortran" src="https://drive.google.com/uc?export=view&amp;amp;id=160Tx6DKsLrtAe1AL5R-qgGaPhZXgmG9s"&gt;&lt;/p&gt;
+&lt;p&gt;在這邊可以選擇我們要下載的 Intel Fortran 版本年限，但只有近幾年的而已，不過既然新的版本可以用就用新的，功能比較多可能也比較沒有以前版本奇怪的
+Bug，但我也怕太新的版本會有新 Bug ，所以這邊示範就下載第二新的&lt;strong&gt;2020 Update 1&lt;/strong&gt;版本（這邊看你下載列表有甚麼就從裡面選想要的版本就好，
+一段時間後列表應該會跟現在長的不一樣）：&lt;br&gt;
+&lt;img alt="選IntelFortran下載版本" src="https://drive.google.com/uc?export=view&amp;amp;id=1piRz2xg2wKusVQbdT6CqyCwZl7qoMbcE"&gt;&lt;/p&gt;
+&lt;p&gt;選好版本後就可以下載了，可以看到下面有兩種下載選項，第一種&lt;strong&gt;Customizable Package&lt;/strong&gt;就是你只會下載一個很小的檔案，透過這檔案在安裝的時候只會
+從網路上下載你指定幾個需要安裝的軟體就好，可以節省下載的時間（就算你從Intel Parallel Studio XE 選了 Fortran 下載，還是會有很多安裝選項可以
+選擇，像是一些 Fortran 相關模組包等等...），第二種&lt;strong&gt;Full Package&lt;/strong&gt;就是會下載完整的安裝檔，下載時間比較久也比較大（不過在後面安裝步驟還是可以
+選擇安裝的東西，只是你已經下載下來了，沒安裝浪費你下載檔案的時間而已），這邊就是看你要哪一種安裝檔而已，隨便選都可以，那這邊我就選 Full Package
+好了，我時間很多XDD：&lt;br&gt;
+&lt;img alt="下載IntelFortran安裝檔" src="https://drive.google.com/uc?export=view&amp;amp;id=1g-lynfam1T_m15wskw_6AVR4lbUvnd1v"&gt;&lt;/p&gt;
+&lt;p&gt;下載完就是一個安裝檔案，應該沒甚麼爭議就是右鍵兩下來啟動安裝，然後會問你一些安裝過程中會用到的檔案要放在哪邊這樣，安裝完它會自己刪掉，
+這邊我就預設路徑，按下&lt;strong&gt;Extract&lt;/strong&gt;繼續安裝：&lt;br&gt;
+&lt;img alt="點擊安裝檔" src="https://drive.google.com/uc?export=view&amp;amp;id=1LaQpEAxSyUY2RD0atMFMWFHItNOAjgSW"&gt;
+&lt;img alt="解壓縮安裝檔" src="https://drive.google.com/uc?export=view&amp;amp;id=1XGoTrmbp0cFQjnG7kTc40YblVwqgmWte"&gt;&lt;/p&gt;
+&lt;p&gt;這邊就可以看到安裝的選項了，至少我們的 Fortran 有安裝到，其它就看你自己要不要就好，這裡我就選這些東西安裝，然後按&lt;strong&gt;Next&lt;/strong&gt;：&lt;br&gt;
+&lt;img alt="勾選安裝選項" src="https://drive.google.com/uc?export=view&amp;amp;id=1VNUxjNVKPmpoiAUkFwvYjDiCHxwyUrwa"&gt;&lt;/p&gt;
+&lt;p&gt;後面這邊就是一些這軟體的使用條款與注意事項，沒問題就按&lt;strong&gt;I consent to the collection of my information&lt;/strong&gt;與
+&lt;strong&gt;Next&lt;/strong&gt;（沒選這個也沒辦法繼續安裝=.=）：&lt;br&gt;
+&lt;img alt="軟體條款" src="https://drive.google.com/uc?export=view&amp;amp;id=1QOdNBM-T9V28MwS7TipP3fMR9rty8DNi"&gt;&lt;/p&gt;
+&lt;p&gt;這邊這個問題是因為我電腦的 CPU 不是 Intel 的是 AMD 的，所以跳出這警告，但 AMD 的 CPU 還是可以用的別緊張，就放心按&lt;strong&gt;Next&lt;/strong&gt;就好XDD：&lt;br&gt;
+&lt;img alt="非Intel CPU 的警告" src="https://drive.google.com/uc?export=view&amp;amp;id=1PWJSlOdUMaALP5X7Csu2WrszaS_SMKM0"&gt;&lt;/p&gt;
+&lt;p&gt;然後就在&lt;strong&gt;Provide a series number&lt;/strong&gt;下面的框框輸入你的產品序號囉（序號在&lt;a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/"&gt;第一篇&lt;/a&gt;文章收的
+信當中，或是這篇你登入 Intel 帳號，進到 Dashboard 裡面的 My Content這邊），輸入好就按&lt;strong&gt;Install&lt;/strong&gt;繼續安裝：&lt;br&gt;
+&lt;img alt="輸入序號" src="https://drive.google.com/uc?export=view&amp;amp;id=1fBQs0EuK9E1qfLn-FcTb5IneUoR22T1y"&gt;&lt;/p&gt;
+&lt;p&gt;只能等它安裝好囉，這段時間有空就看看 paper 吧@@：&lt;br&gt;
+&lt;img alt="等待安裝" src="https://drive.google.com/uc?export=view&amp;amp;id=1NxsNBADQK3ka2lFne9a93BoccWdKp_b_"&gt;&lt;/p&gt;
+&lt;p&gt;看到這畫面就恭喜你安裝完成了，快要可以在 AspenPlus 上面用 Fortran 了！！&lt;br&gt;
+&lt;img alt="安裝完成" src="https://drive.google.com/uc?export=view&amp;amp;id=1EjkuvIC8kG0luts85j6oonUCXmdNIPcQ"&gt;&lt;/p&gt;
+&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt; 結語&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;到這邊，各種所需的軟體都已經安裝完畢了！（如果你的 AspenPlus 也安裝好的話）接下來的步驟我們只要讓 AspenPlus 找的到我們 Fortran
+與 Visual Studio 的路徑就可以了~那就是使用 AspenPlus 所附贈的&lt;strong&gt;Set Compiler&lt;/strong&gt;應用程式來達成這個目的，但是因為預設的 Fortran/VS 列表版本
+都是比較舊的，所以我們必須去更新它，這樣才能認到我們新版的 Fortran/VS，下一篇就會介紹怎麼更新這個列表~&lt;/p&gt;</content><category term="blogging"></category><category term="Intel"></category><category term="Fortran"></category><category term="AspenPlus"></category><category term="AspenTech"></category></entry><entry><title>把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio</title><link href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/" rel="alternate"></link><published>2020-09-01T00:00:00+00:00</published><updated>2020-09-01T00:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-09-01:/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/</id><summary type="html">&lt;p&gt;上一篇文章教了怎麼申請 Intel Fortran Compiler 免費教育版，再來就是要準備安裝了！不過在安裝 Fortran 前，我們先來安裝 Visual Studio...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;上一篇文章教了怎麼申請 Intel Fortran Compiler 免費教育版，再來就是要準備安裝了！不過在安裝 Fortran 前，我們先來安裝
+Visual Studio，因為跑 Fortran 的時候會需要用到 Visual Studio 的 C++ 套件，另外就是安裝 Fortran 時，會幫你在 Visual Studio 新增
+&lt;strong&gt;Fortran專案&lt;/strong&gt;，意思就是你可以用 Visual Studio 來寫 Fortran，編譯器路徑、Debug等等環境在你建立這 Fortran 專案後就會幫你設置好了，
+對於想要純寫 Fortran 的人來說可是相當方便！那現在我們就來開始安裝 Visual Studio 吧~&lt;br&gt;
+如果需要看其他步驟，下面有目錄連結就點進去看吧~&lt;/p&gt;
+&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  系列文章目錄&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/"&gt;把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/"&gt;把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/"&gt;把 Intel Fortran 掛在 AspenPlus （3）安裝 Intel Fortran&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  安裝 Visual Studio Community&lt;/h2&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;首先一樣就是先在搜尋引擎找&lt;strong&gt;Visual Studio&lt;/strong&gt;，在我的畫面是第一個所以我就點第一個進去：
@@ -35,12 +88,13 @@ AspenPlus 了，要將 Fortran 掛到 AspenPlus 上就會遇到兩個問題：&l
 "Set Compiler"來看，好像都不支援最新的 Fortran 編譯器。&lt;br&gt;
 其實上面那兩個問題都是可以解決的，我們學生與教育工作者，不只能用免費的 Intel Fortran，還可以用最新的 Fortran 編譯器！但需要一些繁瑣的
 步驟就是，因此我在這邊把這步驟分享出來，希望大家可以一起來使用正版又最新的 Fortran 編譯器喔~~  &lt;br&gt;
-&amp;emsp;&amp;emsp;因為這步驟有點多，所以我會分為幾個文章來撰寫，首先我們就申請 Intel Fortran Compiler 的免費教育使用板吧~
+&amp;emsp;&amp;emsp;因為這步驟有點多，所以我會分為幾個文章來撰寫，首先我們就申請 Intel Fortran Compiler 的免費教育使用板吧~&lt;br&gt;
 如果需要看其他步驟，下面有目錄連結就點進去看吧~&lt;/p&gt;
 &lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  系列文章目錄&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/"&gt;把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號&lt;/a&gt;&lt;/li&gt;
 &lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/"&gt;把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://shen-sj.github.io/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/"&gt;把 Intel Fortran 掛在 AspenPlus （3）安裝 Intel Fortran&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  申請 Intel Parallel Studio XE 教育版&lt;/h2&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;Intel Fortran Compiler 目前是包在 Intel Parallel Studio XE 這個產品包裡面，只要申請這這整個包的教育使用認證就可以
@@ -73,7 +127,7 @@ AspenPlus 了，要將 Fortran 掛到 AspenPlus 上就會遇到兩個問題：&l
 &lt;img alt="成功認證帳號" src="https://drive.google.com/uc?export=view&amp;amp;id=1fN51rBfv2jGCD9IJYmH9nqA3aZr-5pcS"&gt;  &lt;/p&gt;
 &lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt; 結語&lt;/h2&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;這步驟就是先申請 Intel Fortran Compiler 的免費教育板，不過在下載安裝這個之前，我們先把 Visual Studio 給安裝好，下篇文章
-就會介紹怎麼安裝以及講解安裝的注意事項了~
+就會介紹怎麼安裝以及講解安裝的注意事項了~&lt;br&gt;
 &amp;emsp;&amp;emsp;其實本來我想要寫這部落格就是想要來介紹不用錢的 Intel Fortran 怎麼申請還有怎麼把它掛到 AspenPlus 上面，拖到現在才開始寫呢@@
 希望我可以很有毅力的繼續把其他文章給寫完...&lt;/p&gt;</content><category term="blogging"></category><category term="Intel"></category><category term="Fortran"></category><category term="AspenPlus"></category><category term="AspenTech"></category></entry><entry><title>用 Python 將 AspenPlus 連接起來！！</title><link href="https://shen-sj.github.io/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/" rel="alternate"></link><published>2020-07-26T13:00:00+00:00</published><updated>2020-07-26T13:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-07-26:/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/</id><summary type="html">&lt;p&gt;最近被人家問要怎麼用 Python 把 AspenPlus 連接起來，突然想到其實我這部落格的創立就是想說寫一些 AspenPlus/Dynamics ...&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;最近被人家問要怎麼用 Python 把 AspenPlus 連接起來，突然想到其實我這部落格的創立就是想說寫一些 AspenPlus/Dynamics 與
