@@ -52,3 +52,16 @@ td, th {
     padding: 10px;
     text-align: center;
 }
+
+/* tipue 搜尋欄位的字體顏色 */
+.tipue_search_content_title a {
+    color: #ffffff;
+}
+
+#tipue_search_replace, #tipue_search_error, .tipue_search_content_text {
+    color: #ffffff;
+}
+
+.tipue_search_content_bold {
+    color: #ffb300;
+}
