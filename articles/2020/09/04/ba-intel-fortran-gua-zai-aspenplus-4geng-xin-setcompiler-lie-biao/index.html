@@ -142,8 +142,9 @@ Intel Fortran 跟 Visual Studio 安裝在什麼地方，當 AspenPlus 用到的�
 <li><a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/">把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio</a></li>
 <li><a href="https://shen-sj.github.io/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/">把 Intel Fortran 掛在 AspenPlus （3）安裝 Intel Fortran</a></li>
 <li><a href="https://shen-sj.github.io/articles/2020/09/04/ba-intel-fortran-gua-zai-aspenplus-4geng-xin-setcompiler-lie-biao/">把 Intel Fortran 掛在 AspenPlus （4）更新 SetCompiler 列表</a></li>
+<li><a href="{run_fortran.md">把 Intel Fortran 掛在 AspenPlus （5）建立超簡單 Fortran 反應式並執行</a></li>
 </ul>
-<h2><i class="fas fa-crow"></i>  等入 AspenTech Support Center 下載更新列表</h2>
+<h2><i class="fas fa-crow"></i>  登入 AspenTech Support Center 下載更新列表</h2>
 <p>&emsp;&emsp;首先我們先在電腦打開 AspenTech 提供的設定 Fortran/VS 路徑的<strong>Set Compiler for VXX</strong>應用程式（看你要設定的 AspenPlus
 版本是甚麼，你的XX就是對應的數字），在這邊我就用 V10 來做示範：
 <img alt="找setcompiler" src="https://drive.google.com/uc?export=view&amp;id=1RN5r-N0WofLRiur6D7zZfb_6vhfaRR5m">  </p>
@@ -163,7 +164,7 @@ Compilers.cfg 與 Compilers64.cfg 並下載下來：<br>
 <p>&emsp;&emsp;這邊稍微說一下為甚麼會有 Compilers.cfg 與 Compilers64.cfg 兩種檔案好了，像我這篇的例子， V10 版本的列表就是 Compilers.cfg
 檔案，其實 V10以前（包含 V10）的 Fortran/VS 列表都是在 Compilers.cfg 檔案裡面，如果你是 V11，就是 Compilers64.cfg 檔案，打開 
 Set Compiler for V11 就能看到這個檔案名稱了。</p>
-<p>我們的列表檔案下載下來了，現在我們就把列表直接貼到在第一步驟看到的<code>C:\Program Files (x86)\AspenTech\APrSystem V10.0\Engine\xeq</code>
+<p>&emsp;&emsp;我們的列表檔案下載下來了，現在我們就把列表直接貼到在第一步驟看到的<code>C:\Program Files (x86)\AspenTech\APrSystem V10.0\Engine\xeq</code>
 ，首先就先開啟檔案總管並到這個位置，可以看到 Compilers.cfg 就在裡面：<br>
 <img alt="開啟路徑" src="https://drive.google.com/uc?export=view&amp;id=1M16kSZ_MrFvD7SOchNYSQhcguUrj4ONX">  </p>
 <p>接下來我會先把路徑裡面的 Compilers.cfg 改個名子，這邊我改成 Compilers_old.cfg，然後把剛剛下載下來的 Compilers.cfg 貼到這個路徑下面變成
@@ -257,11 +258,11 @@ Set Compiler for V11 就能看到這個檔案名稱了。</p>
 <li class="list-group-item">
   <h4><i class="fa fa-home fa-lg"></i><span class="icon-label">Recent Posts</span></h4>
   <ul class="list-group" id="recentposts">
+    <li class="list-group-item"><a href="https://shen-sj.github.io/articles/2020/09/20/ba-intel-fortran-gua-zai-aspenplus-5jian-li-chao-jian-dan-fortran-fan-ying-shi-bing-zhi-xing/">把 Intel Fortran 掛在 AspenPlus （5）建立超簡單 Fortran 反應式並執行</a></li>
     <li class="list-group-item"><a href="https://shen-sj.github.io/articles/2020/09/04/ba-intel-fortran-gua-zai-aspenplus-4geng-xin-setcompiler-lie-biao/">把 Intel Fortran 掛在 AspenPlus （4）更新 SetCompiler 列表</a></li>
     <li class="list-group-item"><a href="https://shen-sj.github.io/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/">把 Intel Fortran 掛在 AspenPlus （3）安裝 Intel Fortran</a></li>
     <li class="list-group-item"><a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/">把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio</a></li>
     <li class="list-group-item"><a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/">把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號</a></li>
-    <li class="list-group-item"><a href="https://shen-sj.github.io/articles/2020/07/26/yong-python-jiang-aspenplus-lian-jie-qi-lai/">用 Python 將 AspenPlus 連接起來！！</a></li>
   </ul>
 </li>
 <!-- End Sidebar/Recent Posts -->
@@ -270,10 +271,10 @@ Set Compiler for V11 就能看到這個檔案名稱了。</p>
 <li class="list-group-item">
   <a href="https://shen-sj.github.io/"><h4><i class="fa fa-tags fa-lg"></i><span class="icon-label">Tags</span></h4></a>
   <ul class="list-group list-inline tagcloud" id="tags">
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-0">
       <a href="https://shen-sj.github.io/tag/aspenplus">AspenPlus</a>
     </li>
-    <li class="list-group-item tag-1">
+    <li class="list-group-item tag-0">
       <a href="https://shen-sj.github.io/tag/aspentech">AspenTech</a>
     </li>
     <li class="list-group-item tag-4">
