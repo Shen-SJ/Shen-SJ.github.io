@@ -168,7 +168,7 @@ code 裡面，物質的反應速率變數名稱為 <strong><em>RATES(物質順�
 那如果你的 AspenPlus 是 V11.0 ，應用程式就是在 <strong><em>Program Files</em></strong> 裡面（就是<code>C:\Program Files\AspenTech\Aspen Plus V11.0\Engine\User</code>
 裡面），找到檔案就把該檔案複製到你剛剛存 AspenPlus 模擬檔案的工作目錄底下，記得你的 <strong><em>Fortran 檔案要跟 AspenPlus 模擬檔案在同個目錄</em></strong> 喔~:<br>
 <img alt="找範例檔並複製到工作目錄" src="https://drive.google.com/uc?export=view&amp;id=1SpJgqFhWj2WzmAdEYIqIraRMuEYLNTmu">  </p>
-<p>然後打開 <strong><em>usrkin.f</em></strong> 這個檔案，因為之前我們已經安裝了 Visual Studio 了所以我們可以用這軟體打開該檔案，或是你爽要用記事本打開也可以，
+<p>然後打開 <strong><em>usrkin.f</em></strong> 這個檔案，因為之前我們已經安裝 Visual Studio 了，所以我們可以用這軟體打開該檔案，或是你爽要用記事本打開也可以，
 打開後拉到最下面，新增三個反應速率式：</p>
 <div class="highlight"><pre><span></span><span class="n">RATES</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mf">1.0</span>
 <span class="n">RATES</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span> <span class="o">=</span> <span class="o">-</span><span class="mf">0.5</span>
@@ -212,23 +212,23 @@ Aspen 檔案跟 Fortran 檔的地方：<br>
 <img alt="長度跟直徑" src="https://drive.google.com/uc?export=view&amp;id=1Dy4mw26eUsZZLP6PoEUxOV8-tEGxpoMW"><br>
 3. Reaction 選剛剛的 R-1<br>
 <img alt="反應" src="https://drive.google.com/uc?export=view&amp;id=1-qybcfMZMbKJ7cYSoZa6AmcqWnntsa-j"><br>
-進料物流的設定就簡單了：
-1. 25 攝氏溫度
-2. 1 bar
-3. <span class="math">\(CO\)</span> 有 1 kmol/sec 、 <span class="math">\(O_{2}\)</span> 有 0.5 kmol/sec 的摩爾流率，記得這邊摩爾流率的單位一定要是 <strong><em>kmol/sec</em></strong> 啊！
+進料物流的設定就簡單了：<br>
+1. 25 攝氏溫度<br>
+2. 1 bar<br>
+3. <span class="math">\(CO\)</span> 有 1 kmol/sec 、 <span class="math">\(O_{2}\)</span> 有 0.5 kmol/sec 的摩爾流率，記得這邊摩爾流率的單位一定要是 <strong><em>kmol/sec</em></strong> 啊！<br>
 <img alt="物流輸入" src="https://drive.google.com/uc?export=view&amp;id=1a28MQV161WewKOOr2BbLFoRtcnLcNhgu">  </p>
 <p>非常辛苦的把以上的步驟都做完了後，應該就會看到下圖的樣子，然後終於可以跑模擬了！<br>
 <img alt="開始跑模擬" src="https://drive.google.com/uc?export=view&amp;id=1UrVbarA04DcheutlBnggK4ubCPVA0i-O">  </p>
-<p>呼~看來是有成功收連沒問題！來看看結果是不是符合預期，在 PFR 上面點右鍵，然後點擊 <strong><em>Stream Results</em></strong>：<br>
+<p>呼~看來是有成功收斂沒問題！來看看結果是不是符合預期，在 PFR 上面點右鍵，然後點擊 <strong><em>Stream Results</em></strong>：<br>
 <img alt="看結果" src="https://drive.google.com/uc?export=view&amp;id=1qP_hIEvd2ZEjaA1V1YPJdjbCnCOhaJ7W">  </p>
 <p>拉到下面看 <strong><em>Mole Flows</em></strong> 並把單位都改成 <strong><em>kmol/sec</em></strong>，嗯~~~看來整個反應有符合我們的預期來進行呢~<br>
 <img alt="預期的結果" src="https://drive.google.com/uc?export=view&amp;id=1E4mg1fens5aq36PpOmM231-CcRDEkPz8">  </p>
 <h2><i class="fas fa-crow"></i> 結語</h2>
-<p>&emsp;&emsp;終於啊終於，我們走到了這步了，如果跟著所有的步驟得到剛剛那樣的結果的話，表示你的 Fortran 掛 AspenPlus 是完全沒有問題了~接下來
-就可以依照自己的要求來撰寫所需要的動力式了，不過要注意的是，如果你有在使用各種不同版本的 AspenPlus 的話，每一種板本都要各別編譯一次喔，就是用
-<strong><em>Customize Aspen Plus</em></strong> 各別編譯一次，這樣才比較不會有問題。
+<p>&emsp;&emsp;終於啊終於，我們走到了這步，如果跟著所有的步驟得到剛剛那樣的結果的話，表示你的 Fortran 掛 AspenPlus 是完全沒有問題了~接下來
+就可以依照自己的要求來撰寫所需要的動力式，不過要注意的是，如果你有在使用各種不同版本的 AspenPlus ，每一種版本都要各別編譯一次喔，就是用
+<strong><em>Customize Aspen Plus</em></strong> 各別編譯一次，這樣才比較不會有問題。<br>
 &emsp;&emsp;這次的教學真的有點長，感覺好像也不是寫得特別好，或許有機會再修改吧@@之後應該還會有一些補充的文章，尤其是那個 SetCompiler 列表的
-部分，雖然說去 AspenTech 官方網站更新就好，不過也是可以自己撰寫那個檔案的，想說稍微介紹一下裡面的語法之類的，了解語法如果之後有甚麼問題，感覺對
+部分，雖然說去 AspenTech 官方網站更新就好，不過也是可以自己撰寫那個檔案的，想說稍微介紹一下裡面的語法之類，了解語法如果之後有甚麼問題，感覺對
 處理問題上面會比較得心應手吧，我覺得啦...</p>
 <script type="text/javascript">if (!document.getElementById('mathjaxscript_pelican_#%@#$@#')) {
     var align = "center",
@@ -294,6 +294,16 @@ Aspen 檔案跟 Fortran 檔的地方：<br>
 </script>
             </div>
             <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Part 5 of the 把 Intel Fortran 掛在 AspenPlus series</h4>
+       <h5>Previous articles</h5>
+       <ul>
+           <li><a href="https://shen-sj.github.io/articles/2020/08/31/ba-intel-fortran-gua-zai-aspenplus-1shen-qing-intel-jiao-yu-mian-fei-zhang-hao/">把 Intel Fortran 掛在 AspenPlus （1）申請 Intel 教育免費帳號</a></li>
+           <li><a href="https://shen-sj.github.io/articles/2020/09/01/ba-intel-fortran-gua-zai-aspenplus-2an-zhuang-visual-studio/">把 Intel Fortran 掛在 AspenPlus （2）安裝 Visual Studio</a></li>
+           <li><a href="https://shen-sj.github.io/articles/2020/09/02/ba-intel-fortran-gua-zai-aspenplus-3an-zhuang-intel-fortran/">把 Intel Fortran 掛在 AspenPlus （3）安裝 Intel Fortran</a></li>
+           <li><a href="https://shen-sj.github.io/articles/2020/09/04/ba-intel-fortran-gua-zai-aspenplus-4geng-xin-setcompiler-lie-biao/">把 Intel Fortran 掛在 AspenPlus （4）更新 SetCompiler 列表</a></li>
+       </ul>
+</section>
     <hr/>
     <section class="comments" id="comments">
         <h2>Comments</h2>
