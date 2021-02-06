@@ -1,5 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<feed xmlns="http://www.w3.org/2005/Atom"><title>SSJ's Blog</title><link href="https://shen-sj.github.io/" rel="alternate"></link><link href="https://shen-sj.github.io/feeds/all.atom.xml" rel="self"></link><id>https://shen-sj.github.io/</id><updated>2020-09-20T00:00:00+00:00</updated><entry><title>把 Intel Fortran 掛在 AspenPlus （5）建立超簡單 Fortran 反應式並執行</title><link href="https://shen-sj.github.io/articles/2020/09/20/ba-intel-fortran-gua-zai-aspenplus-5jian-li-chao-jian-dan-fortran-fan-ying-shi-bing-zhi-xing/" rel="alternate"></link><published>2020-09-20T00:00:00+00:00</published><updated>2020-09-20T00:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-09-20:/articles/2020/09/20/ba-intel-fortran-gua-zai-aspenplus-5jian-li-chao-jian-dan-fortran-fan-ying-shi-bing-zhi-xing/</id><summary type="html">&lt;p&gt;經過了這麼長的流程，我們的電腦終於準備好可以掛 Fortran 的檔案給 AspenPlus 跑了，那這篇會用 Fortran 寫一個超簡單的動力式、透過 AspenPlus 編譯、建立 AspenPlus 模擬檔案、掛到 AspenPlus 上並且成功執行！&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
+<feed xmlns="http://www.w3.org/2005/Atom"><title>SSJ's Blog</title><link href="https://shen-sj.github.io/" rel="alternate"></link><link href="https://shen-sj.github.io/feeds/all.atom.xml" rel="self"></link><id>https://shen-sj.github.io/</id><updated>2021-02-07T00:00:00+00:00</updated><entry><title>使用iPad來寫部落格</title><link href="https://shen-sj.github.io/articles/2021/02/07/shi-yong-ipadlai-xie-bu-luo-ge/" rel="alternate"></link><published>2021-02-07T00:00:00+00:00</published><updated>2021-02-07T00:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2021-02-07:/articles/2021/02/07/shi-yong-ipadlai-xie-bu-luo-ge/</id><summary type="html">&lt;p&gt;也是好久沒有寫部落格了呢！唉~~人都是懶惰的，撰寫方式麻煩就是會懶得寫，我用 Pelican 這個 Python 靜態網頁生成器寫部落格，我都要坐在電腦前面，打開我的 IDE，等待許久⋯⋯&lt;/p&gt;</summary><content type="html">&lt;h2 id="前言"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;也是好久沒有寫部落格了呢！唉~~人都是懶惰的，撰寫方式麻煩就是會懶得寫，我用 Pelican 這個 Python 靜態網頁生成器寫部落格，
+我都要坐在電腦前面，打開我的 IDE，等待許久（其實也就幾秒啦）後，新增檔案開始按照特定格式來寫部落格，而且還會寫很久，重點是要坐在電腦前面啊，
+現在都什麼年紀了，躺在床上的時間一定比坐在電腦前的時間多啊~所以就因為懶得坐在電腦前面就一直都沒寫部落格了，即使有備忘一下有什麼題材可以寫，
+但就是一個&lt;strong&gt;懶&lt;/strong&gt;字，最近是有想說要不要架一個部落格伺服器，像是以前的無名小站這樣（抱歉沒用過現在的網路部落格⋯）只要用網頁就可以登入一個好用的後台，
+然後對自己的部落格做管理，看是寫文章啊、回訊息啊還是作其他設定之類的，是有開始看這方面的資料啦，不過以我這種龜速的學習速度可能還要很久才能達到目的，
+而我又不想重新懷抱第三方聽過的部落格服務站，我想自己架部落格就是想要自我挑戰，自己做出來的東西就是比較有成就感~又可以達到紀錄自己德學習歷程與分享經驗，
+既然還想走下去，苦思許久終於想到一個替代方法，那就是：&lt;br&gt;
+&lt;strong&gt;利用 iPad 來寫文章！&lt;/strong&gt;&lt;br&gt;
+想到就拿 iPad 出來寫，寫完就傳到電腦去，我只要花個幾秒的時間坐在電腦前面打開 IDE 、下渲染指令，最後上傳到 GitHub 就好了！
+就這幾秒的時間應該是能夠克服吧 哈哈哈&lt;br&gt;
+&amp;emsp;&amp;emsp;好吧其實我很久以前就想到這個方法了，也去找可以編寫 Markdown 文字格式的 APP 來用，但那時候腦袋不知道是壞掉還是撞到，
+就一直覺得這些 APP 的文字渲染功能看起來就不像是 md 語法，感覺寫出來只能在這個 APP 看而而已，也就不能輸出成 md 檔了，最近突然開竅，
+才發現這些方便的渲染功能按鍵就是來簡化輸入指令的時間，語法都是符合 md 要求的（當然 md 語法有很多變形，可能就要再做調整），然後把以前刪除的 
+APP 下載回來看看是否有輸出 md 檔的功能，最後才有了這篇文章 :))&lt;br&gt;
+&amp;emsp;&amp;emsp;接下來我會紀錄使用 APP 撰寫文章到發佈成部落格的步驟，雖然比起直接在電腦寫、渲染、上傳好像多了好多步驟，但好處就是可以隨時寫啊，
+就讓我們看下去吧~  &lt;/p&gt;
+&lt;h2 id="目錄"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  目錄&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href="#前言"&gt;前言&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#目錄"&gt;目錄&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#下載app"&gt;下載 APP&lt;/a&gt; &lt;/li&gt;
+&lt;li&gt;&lt;a href="#製作範本文章"&gt;製作範本文章&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#編寫文章並輸出到雲端硬碟"&gt;編寫文章並輸出到雲端硬碟&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#發佈"&gt;發佈！&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="#結語"&gt;結語&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="下載app"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  下載 APP&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;在我 iPad 裡的 APP Store 尋找有沒有適合的 Markdown 的文字編輯器，然後看到了這個，感覺評分還不錯，評分人數也算高，這評分應該是有參考價值吧~反正免費就下載來用了&lt;br&gt;
+&lt;img alt="搜尋app" src="https://drive.google.com/uc?export=view&amp;amp;id=1CTdGM_pzIvXEiiCaaHLtP6CfISS9iS2L"&gt;   &lt;/p&gt;
+&lt;p&gt;之後打開 APP 來用看看，稍微看看檔案的分類佈局是怎億，另外就是了解一些功能鍵怎麼使用，當然重要的是能不能輸出成 md 檔囉~就輸出看看&lt;br&gt;
+&lt;img alt="app內部1" src="https://drive.google.com/uc?export=view&amp;amp;id=1RA9j0xGO8Pff23zzk_JZ7WEDPsGK0e25"&gt; &lt;br&gt;
+&lt;img alt="app內部2" src="https://drive.google.com/uc?export=view&amp;amp;id=1N5Jao6bzif6_f3my26S97N_HN5vlHjUD"&gt; &lt;br&gt;
+&lt;img alt="輸出功能" src="https://drive.google.com/uc?export=view&amp;amp;id=1HNnTFmBPe9-DoSxohw1cOR6P1QkKDJ3v"&gt;   &lt;/p&gt;
+&lt;p&gt;看起來輸出的 md 檔好像是正確的，那就可以繼續我的部落格旅程了~&lt;br&gt;
+&lt;img alt="md輸出結果" src="https://drive.google.com/uc?export=view&amp;amp;id=1-OsNmwjpIdI63_WZSS813oDuMNKmE-eu"&gt;   &lt;/p&gt;
+&lt;h2 id="製作範本文章"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  製作範本文章&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;要看看這個 app 好不好用，有沒有符合我的需求，寫一篇出來就知道了，所以就誕生了本篇文章 :)) ，前言有說過，
+我這個渲染器對於檔案內文是有一些要求的，像是開頭需要列出一些項目 (Title, author⋯等等) 、我文章標題的小鳥圖⋯等等，基本上沒有任何一款 APP 
+能夠自動補全的（大概只能自己寫吧），但要把這些語法背起來又是不可能的，那就建立一個範例檔案，之後寫文章就複製一份範例檔，從範例檔複製語法編寫文章囉，
+因此我從我以前寫過的文章，拿來改成範例檔，把一些我會用到的格式語法全部都打在這個檔案裡面，像這樣：&lt;br&gt;
+&lt;img alt="md範例檔" src="https://drive.google.com/uc?export=view&amp;amp;id=1bH3ZKGCjuurbGDjyin1YBWTniINCDDib"&gt;   &lt;/p&gt;
+&lt;h2 id="編寫文章並輸出到雲端硬碟"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  編寫文章並輸出到雲端硬碟&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;有了範例檔就可以順利的寫好多文章了~文章一多，可能就不容易找尋，而且看起來又混亂，這時可以利用該 APP 的&lt;strong&gt;標籤功能&lt;/strong&gt;幫我的文章在 
+APP 裡面做分類，有整理過就比較好查閱了~&lt;br&gt;
+&lt;img alt="標籤功能" src="https://drive.google.com/uc?export=view&amp;amp;id=1_ko_CfeGD6JH5G1EfZS_iUMYO_70xb2f"&gt;   &lt;/p&gt;
+&lt;p&gt;文章中可能會插入一些圖片，圖片我還要先上傳到雲端上，然後在取得連結，這過程用 iPad 可能有點苦手，所以我就先繼續寫文章，先預留圖片放置的位置與圖片敘述，
+等之後在電腦操作的時候再一併處理會比較快速些~  &lt;/p&gt;
+&lt;p&gt;文章寫好就可以輸出並上傳到我的 GoogleDrive 上面！&lt;br&gt;
+&lt;img alt="輸出文章" src="https://drive.google.com/uc?export=view&amp;amp;id=1RRFC9mdslplih403IITNKa9SauigUygJ"&gt;   &lt;/p&gt;
+&lt;h2 id="發佈"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  發佈！&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;從電腦把文章下載，還需要將圖片連結補上，另外在 APP 分類用的標籤也要刪除，不然會看起來怪怪的~發佈前預輸出看看結果如何，
+沒問題就直接上架！&lt;br&gt;
+&lt;img alt="上架前預覽" src="https://drive.google.com/uc?export=view&amp;amp;id=1ENkfIvO1CpzTJS3abqlNclV-cNiVCGBD"&gt;   &lt;/p&gt;
+&lt;h2 id="結語"&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt; 結語&lt;/h2&gt;
+&lt;p&gt;&amp;emsp;&amp;emsp;最後這樣做出來感覺跟以前寫的文章差不多，改用 iPad 寫文章後，雖然還是免不了要坐在電腦前面稍微修改內容、插入圖片以及下渲染指令，
+但就可以利用瑣碎的時間，想寫就寫，慢慢一點一滴地把文章寫出來了~希望改成這個方式後可以繼續堅持寫下去 (´ω`)&lt;/p&gt;</content><category term="blogging"></category><category term="iPad"></category><category term="markdown"></category><category term="blog"></category></entry><entry><title>把 Intel Fortran 掛在 AspenPlus （5）建立超簡單 Fortran 反應式並執行</title><link href="https://shen-sj.github.io/articles/2020/09/20/ba-intel-fortran-gua-zai-aspenplus-5jian-li-chao-jian-dan-fortran-fan-ying-shi-bing-zhi-xing/" rel="alternate"></link><published>2020-09-20T00:00:00+00:00</published><updated>2020-09-20T00:00:00+00:00</updated><author><name>SSJ</name></author><id>tag:shen-sj.github.io,2020-09-20:/articles/2020/09/20/ba-intel-fortran-gua-zai-aspenplus-5jian-li-chao-jian-dan-fortran-fan-ying-shi-bing-zhi-xing/</id><summary type="html">&lt;p&gt;經過了這麼長的流程，我們的電腦終於準備好可以掛 Fortran 的檔案給 AspenPlus 跑了，那這篇會用 Fortran 寫一個超簡單的動力式、透過 AspenPlus 編譯、建立 AspenPlus 模擬檔案、掛到 AspenPlus 上並且成功執行！&lt;/p&gt;</summary><content type="html">&lt;h2&gt;&lt;i class="fas fa-crow"&gt;&lt;/i&gt;  前言&lt;/h2&gt;
 &lt;p&gt;&amp;emsp;&amp;emsp;經過了這麼長的流程，我們的電腦終於準備好可以掛 Fortran 的檔案給 AspenPlus 跑了，那這篇會用 Fortran 寫一個超簡單的動力式、
 透過 AspenPlus 編譯、建立 AspenPlus 模擬檔案、掛到 AspenPlus 上並且成功執行！對於這個動力式我就稍微解說一下好了，整個反應式長這樣：   &lt;/p&gt;
 &lt;div class="math"&gt;$$CO+\frac{1}{2} O_{2} \rightarrow CO_{2}$$&lt;/div&gt;
